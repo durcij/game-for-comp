@@ -46,3 +46,7 @@ I will then analyze this footage to gain an idea of what players did to communic
 ### Goal
 
 My goal in this project is to both gain further understanding of human communication while playing local multiplayer games, and to build an engaging local multiplayer gaming experience.  I've always valued local multiplayer above online multiplayer, and I think this would be an area in which I could spend countless hours on research, design, and personal time.
+
+## Further Reading
+
+[Cheung, Victor, Y-L. Betty Chang, and Stacey D. Scott. "Communication channels and awareness cues in collocated collaborative time-critical gaming." Proceedings of the ACM 2012 conference on Computer Supported Cooperative Work. ACM, 2012.](https://www.researchgate.net/profile/Stacey_Scott/publication/220878862_Communication_channels_and_awareness_cues_in_collocated_collaborative_time-critical_gaming/links/56951ae408ae425c68981b3a.pdf)
