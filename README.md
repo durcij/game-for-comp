@@ -39,7 +39,7 @@ In the control group, I plan to suggest neither cooperative nor competitive play
 
 ### Data Recording and Analysis
 
-To record the data, I plan to use a screen recording software of some sort (most likely (OBS)[https://obsproject.com/]) as well as using a camera to record the interactions between players during their play session.
+To record the data, I plan to use a screen recording software of some sort (most likely [OBS](https://obsproject.com/)) as well as using a camera to record the interactions between players during their play session.
 
 I will then analyze this footage to gain an idea of what players did to communicate, the ways people played and the characters they chose based on the instructions given prior, and the strategies they employed in the game.
 
