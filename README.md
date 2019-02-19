@@ -16,7 +16,7 @@ Tristitia | Sadness | Can slide on her tears to dash
 Dormio | Exhaustion | Loses less treasure when attacked
 Dilectio | Love | Gains treasure while near others, loses it while far from them
 Verecundia | Anxiety | Gains treasure while far from others, loses it while near them
-Avaritia? | Jealousy | Knocks more treasure from other players
+Invidia | Jealousy | Knocks more treasure from other players
 Mercuria | Luck | Has a chance to dodge an attack
 
 ## Planned Research Idea
