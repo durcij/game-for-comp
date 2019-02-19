@@ -50,3 +50,5 @@ My goal in this project is to both gain further understanding of human communica
 ## Further Reading
 
 [Cheung, Victor, Y-L. Betty Chang, and Stacey D. Scott. "Communication channels and awareness cues in collocated collaborative time-critical gaming." Proceedings of the ACM 2012 conference on Computer Supported Cooperative Work. ACM, 2012.](https://www.researchgate.net/profile/Stacey_Scott/publication/220878862_Communication_channels_and_awareness_cues_in_collocated_collaborative_time-critical_gaming/links/56951ae408ae425c68981b3a.pdf)
+
+[Tse, Edward, et al. "Multimodal multiplayer tabletop gaming." Computers in Entertainment (CIE) 5.2 (2007): 12.](https://prism.ucalgary.ca/bitstream/handle/1880/45898/2006-823-16.pdf?sequence=2&isAllowed=y)
