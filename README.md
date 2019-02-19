@@ -35,7 +35,7 @@ In the cooperative group, I plan to suggest cooperative play by saying that play
 
 #### Control
 
-In the control group, I plan to suggest neither cooperative nor competitive play by simply saying that players will be playing a multiplayer game with a scoring system based on treasure.  I'll also further hold the control by putting two treasure containing dummies into the spawns of control players, one that looks like a player character, and one that looks like a non-player character.
+In the control group, I plan to suggest neither cooperative nor competitive play by simply saying that players will be playing a multiplayer game.  I'll also further hold the control by putting two treasure containing dummies into the spawns of control players, one that looks like a player character, and one that looks like a non-player character.
 
 ### Data Recording and Analysis
 
