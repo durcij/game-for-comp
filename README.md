@@ -56,3 +56,7 @@ Discusses communication while playing local multiplayer titles.
 ### 2 - [Tse, Edward, et al. "Multimodal multiplayer tabletop gaming." Computers in Entertainment (CIE) 5.2 (2007): 12.](https://prism.ucalgary.ca/bitstream/handle/1880/45898/2006-823-16.pdf?sequence=2&isAllowed=y)
 
 Discusses the concept of all players sharing a viewpoint, and making games more tabletop-like.
+
+### 3 - [Sore losers? A reexamination of the frustration–aggression hypothesis for colocated video game play](https://search.proquest.com/docview/1492504816?accountid=8268)
+
+Discusses the social impacts of local multiplayer games.
