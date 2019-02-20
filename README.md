@@ -57,6 +57,6 @@ Discusses communication while playing local multiplayer titles.
 
 Discusses the concept of all players sharing a viewpoint, and making games more tabletop-like.
 
-### 3 - [Sore losers? A reexamination of the frustration–aggression hypothesis for colocated video game play](https://search.proquest.com/docview/1492504816?accountid=8268)
+### 3 - [Breuer, Johannes, Michael Scharkow, and Thorsten Quandt. "Sore losers? A reexamination of the frustration–aggression hypothesis for colocated video game play." Psychology of Popular Media Culture 4.2 (2015): 126.](https://search.proquest.com/docview/1492504816?accountid=8268)
 
 Discusses the social impacts of local multiplayer games.
