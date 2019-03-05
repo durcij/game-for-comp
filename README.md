@@ -65,4 +65,6 @@ Discusses the social impacts of local multiplayer games.
 
 ### 1 - [Junior Seminar Lab 3:  Literature Review](https://github.com/Allegheny-Computer-Science-580-S2019/lab-3-cs-580-spring-2019-durcij)
 
-### 2 - [Junior Seminar Assignment 6:  Comp Proposal Outline](https://github.com/Allegheny-Computer-Science-580-S2019/assignment06-durcij)
+### 2 - [Junior Seminar Assignment 5:  Comp Proposal](https://github.com/Allegheny-Computer-Science-580-S2019/assignment05-durcij)
+
+### 3 - [Junior Seminar Assignment 6:  Comp Proposal Outline](https://github.com/Allegheny-Computer-Science-580-S2019/assignment06-durcij)
