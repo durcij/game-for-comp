@@ -1,6 +1,6 @@
-# Gemotion Commotion
+# Emotion Commotion
 
-This is where I'll be storing files for my comprehensive project at Allegheny College.  It's still unnamed, but I'll at least begin storing the files now.
+This is where I'll be storing files for my comprehensive project at Allegheny College.  I'll at least begin storing the files now.
 
 ## Characters
 
@@ -13,10 +13,10 @@ Character | Emotion | Ability
 Risio | Happiness | Can run more quickly than other characters
 Furia | Rage | Has a longer attack reach than other characters
 Tristitia | Sadness | Can slide on her tears to dash
-Dormio | Exhaustion | Loses less gemotions when attacked
-Dilectio | Love | Gains gemotions while near others, loses it while far from them
-Verecundia | Anxiety | Gains gemotions while far from others, loses it while near them
-Invidia | Jealousy | Knocks more gemotions from other players
+Dormio | Exhaustion | Loses less gemotes when attacked
+Dilectio | Love | Gains gemotes while near others, loses it while far from them
+Verecundia | Anxiety | Gains gemotes while far from others, loses it while near them
+Invidia | Jealousy | Knocks more gemotes from other players
 Mercuria | Luck | Has a chance to dodge an attack
 
 ## Planned Research Idea
@@ -27,15 +27,15 @@ My goal is to research how people interact while playing different styles of gam
 
 #### Competitive
 
-In the competitive group, I plan to suggest competitive play by saying that players will be playing "against" each other to get as high of a score as possible.  I'll also further suggest competitive play by putting two gemotion containing dummies that look like player characters into the spawns of competitive players.
+In the competitive group, I plan to suggest competitive play by saying that players will be playing "against" each other to get as high of a score as possible.  I'll also further suggest competitive play by putting two gemote containing dummies that look like player characters into the spawns of competitive players.
 
 #### Cooperative
 
-In the cooperative group, I plan to suggest cooperative play by saying that players will be playing "with" each other to get as high of a score as possible.  I'll also further suggest cooperative play by putting two gemotion containing dummies that look like non-player characters into the spawns of cooperative players.
+In the cooperative group, I plan to suggest cooperative play by saying that players will be playing "with" each other to get as high of a score as possible.  I'll also further suggest cooperative play by putting two gemote containing dummies that look like non-player characters into the spawns of cooperative players.
 
 #### Control
 
-In the control group, I plan to suggest neither cooperative nor competitive play by simply saying that players will be playing a multiplayer game.  I'll also further hold the control by removing the gemotion containing dummies from the spawns of control players.
+In the control group, I plan to suggest neither cooperative nor competitive play by simply saying that players will be playing a multiplayer game.  I'll also further hold the control by removing the gemote containing dummies from the spawns of control players.
 
 ### Data Recording and Analysis
 
