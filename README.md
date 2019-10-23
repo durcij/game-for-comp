@@ -19,6 +19,13 @@ Verecundia | Anxiety | Gains gemotes while far from others, loses it while near 
 Invidia | Jealousy | Knocks more gemotes from other players
 Mercuria | Luck | Has a chance to dodge an attack
 
+### Enemies and Functions
+
+Enemy | Emotion? | Function
+----- | ------- | --------
+Nullus | Apathy | Small wandering enemy scattered around the map.
+Crudelis | Emotionlessness | Massive boss enemy with lots of health.  Only one on the map.
+
 ## Planned Research Idea
 
 My goal is to research how people interact while playing different styles of games through local multiplayer.  I'm specifically looking to study how people interact in competitive and cooperative play.  To do this, I'm building a game that can be played either competitively, or cooperatively, and giving instructions that give differing ideas of what to do in the game.
