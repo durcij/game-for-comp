@@ -8,16 +8,16 @@ There are 8 playable characters planned, at this moment.  Every character is bas
 
 ### Character List and Powers
 
-Character | Emotion | Ability
---------- | ------- | -------
-Risio | Happiness | Can run more quickly than other characters
-Furia | Rage | Has a longer attack reach than other characters
-Tristitia | Sadness | Can slide on her tears to dash
-Dormio | Exhaustion | Loses less gemotes when attacked
-Dilectio | Love | Gains gemotes while near others, loses it while far from them
-Verecundia | Anxiety | Gains gemotes while far from others, loses it while near them
-Invidia | Jealousy | Knocks more gemotes from other players
-Mercuria | Luck | Has a chance to dodge an attack
+Character | Nickname | Emotion | Ability
+--------- | -------- | ------- | -------
+Risio | Ris | Happiness | Can run more quickly than other characters
+Furia | Fury | Rage | Has a longer attack reach than other characters
+Tristitia | Tristi | Sadness | Can slide on her tears to dash
+Dormio | Mio | Exhaustion | Loses less gemotes when attacked
+Dilectio | Dil | Love | Gains gemotes while near others, loses it while far from them
+Verecundia | Veri | Anxiety | Gains gemotes while far from others, loses it while near them
+Invidia | Vidi | Jealousy | Knocks more gemotes from other players
+Mercuria | Merc | Luck | Has a chance to dodge an attack
 
 ### Enemies and Functions
 
