@@ -77,3 +77,5 @@ Discusses the social impacts of local multiplayer games.
 ### 3 - [Junior Seminar Assignment 6:  Comp Proposal Outline](https://github.com/Allegheny-Computer-Science-580-S2019/assignment06-durcij)
 
 ### 4 - [Comp Group Assignment 1:  Comp Proposal](https://github.com/allegheny-computer-science-thesis-2019/project1-starter-durcij)
+
+### 5 - [Senior Thesis](https://github.com/allegheny-computer-science-thesis-2019/project4-thesis-durcij)
