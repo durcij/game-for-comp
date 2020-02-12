@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerMovementRis.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion Commotion/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
