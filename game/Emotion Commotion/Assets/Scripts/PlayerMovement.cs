@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour {
   bool isFacingBackward = false;
   bool hasAttacked = false;
 	Animator anim;
-	AudioSource pain;
   AudioSource attack;
 	private int wait;
 	public float attackWait = 0.5f;
