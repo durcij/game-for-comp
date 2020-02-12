@@ -1,4 +1,4 @@
-using System.Collections;
+Facingusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
         isFacingForward = false;
         isFacingBackward = false;
 
-				Animating (isMovedLeft, isMovedRight);
+				AnimatingMove(isMovedLeft, isMovedRight);
 			} else if (Input.GetKey(KeyCode.RightArrow)) { // Move right
 				isMovedRight = true;
 				isMovedLeft = false;
@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour {
         isFacingForward = false;
         isFacingBackward = false;
 
-				Animating (isMovedLeft, isMovedRight);
+				AnimatingMove(isMovedLeft, isMovedRight);
 			} else { // Doesn't move
 				isMovedLeft = false;
 				isMovedRight = false;
-				Animating (isMovedLeft, isMovedRight);
+				AnimatingMove(isMovedLeft, isMovedRight);
 			}
       if (Input.GetKey(KeyCode.DownArrow)) // Move forward
   			{
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
           isFacingForward = true;
           isFacingBackward = false;
 
-  				Animating (isMovedForward, isMovedBackward);
+  				AnimatingMove(isMovedForward, isMovedBackward);
   			} else if (Input.GetKey(KeyCode.UpArrow)) { // Move backward
   				isMovedBackward = true;
   				isMovedForward = false;
@@ -84,11 +84,11 @@ public class PlayerMovement : MonoBehaviour {
           isFacingForward = false;
           isFacingBackward = true;
 
-  				Animating (isMovedForward, isMovedBackward);
+  				AnimatingMove(isMovedForward, isMovedBackward);
   			} else { // Doesn't move
   				isMovedForward = false;
   				isMovedBackward = false;
-  				Animating (isMovedForward, isMovedBackward);
+  				AnimatingMove(isMovedForward, isMovedBackward);
   			}
 
 		if (isMovedRight)
@@ -103,6 +103,11 @@ public class PlayerMovement : MonoBehaviour {
 		} else if (isMovedForward) {
 				transform.Translate(Vector3.down * Time.deltaTime * speed);
 		}
+
+    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward) {
+        AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward)
+      }
+    }
 
 
 		if (Input.GetKey(KeyCode.Space) && hasAttacked == false && isFacingRight == true) {
@@ -123,12 +128,19 @@ public class PlayerMovement : MonoBehaviour {
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 	}
 
-	void Animating (bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward)	{
+	void AnimatingMove(bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward)	{
 		anim.SetBool ("isMovedLeft", isMovedLeft);
 		anim.SetBool ("isMovedRight", isMovedRight);
     anim.SetBool ("isMovedForward", isMovedForward);
     anim.SetBool ("isMovedBackward", isMovedBackward);
 	}
+
+  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward) {
+    anim.SetBool ("isFacingLeft", isFacingLeft);
+    anim.SetBool ("isFacingRight", isFacingRight);
+    anim.SetBool ("isFacingForward", isFacingForward);
+    anim.SetBool ("isFacingBackward", isFacingBackward);
+  }
 
 	void AnimatingAttack (bool isAttackingRight, bool isAttackingLeft) {
 		anim.SetBool ("isAttackingRight", isAttackingRight);
