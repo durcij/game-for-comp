@@ -32,25 +32,25 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isMovingForward
+  - m_Name: isMovedForward
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isMovingBackward
+  - m_Name: isMovedBackward
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isMovingLeft
+  - m_Name: isMovedLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isMovingRight
+  - m_Name: isMovedRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -104,16 +104,16 @@ AnimatorStateTransition:
     m_ConditionEvent: isFacingBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isAttackingForward
@@ -151,9 +151,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isAttackingRight
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFacingRight
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102247124508388726}
   m_Solo: 0
@@ -176,10 +173,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102452608968071464}
@@ -203,10 +200,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102364013174745280}
@@ -230,10 +227,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102845107772574040}
@@ -260,16 +257,16 @@ AnimatorStateTransition:
     m_ConditionEvent: isFacingRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isAttackingForward
@@ -307,9 +304,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isAttackingLeft
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFacingLeft
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102818445461895896}
   m_Solo: 0
@@ -333,9 +327,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: isAttackingForward
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFacingForward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102714941646668142}
@@ -362,16 +353,16 @@ AnimatorStateTransition:
     m_ConditionEvent: isFacingLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isAttackingForward
@@ -410,16 +401,16 @@ AnimatorStateTransition:
     m_ConditionEvent: isFacingForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingForward
+    m_ConditionEvent: isMovedForward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingBackward
+    m_ConditionEvent: isMovedBackward
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isAttackingForward
@@ -455,10 +446,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isMovingRight
+    m_ConditionEvent: isMovedRight
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isMovingLeft
+    m_ConditionEvent: isMovedLeft
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102240086713417424}
@@ -483,9 +474,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: isAttackingBackward
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFacingBackward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102689709400193128}

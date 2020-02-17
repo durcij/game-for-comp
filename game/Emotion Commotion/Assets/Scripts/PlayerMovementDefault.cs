@@ -18,6 +18,7 @@ public class PlayerMovementDefault : MonoBehaviour {
   bool isFacingForward = true;
   bool isFacingBackward = false;
   bool hasAttacked = false;
+	bool isMoving = false;
 	Animator anim;
   AudioSource attack;
 	private int wait;
@@ -33,39 +34,45 @@ public class PlayerMovementDefault : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		speed = 1.2f;
+		speed = 2.0f;
 
 		checkAttack ();
 
-		if (Input.GetKey(KeyCode.LeftArrow)) // Move left
+		if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 			{
 				isMovedLeft = true;
 				isMovedRight = false;
+				isMovedForward = false;
+				isMovedBackward = false;
 
         isFacingLeft = true;
         isFacingRight = false;
         isFacingForward = false;
         isFacingBackward = false;
 
-				AnimatingMoveLR(isMovedLeft, isMovedRight);
-			} else if (Input.GetKey(KeyCode.RightArrow)) { // Move right
-				isMovedRight = true;
-				isMovedLeft = false;
+				isMoving = true;
 
-        isFacingLeft = false;
-        isFacingRight = true;
-        isFacingForward = false;
-        isFacingBackward = false;
+				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+			} else if (Input.GetKey(KeyCode.RightArrow) && (!isMoving || isMovedRight)) // Move right
+				{
+					isMovedRight = true;
+					isMovedLeft = false;
+					isMovedForward = false;
+					isMovedBackward = false;
 
-				AnimatingMoveLR(isMovedLeft, isMovedRight);
-			} else { // Doesn't move
-				isMovedLeft = false;
-				isMovedRight = false;
-				AnimatingMoveLR(isMovedLeft, isMovedRight);
-			}
-      if (Input.GetKey(KeyCode.DownArrow)) // Move forward
+        	isFacingLeft = false;
+        	isFacingRight = true;
+        	isFacingForward = false;
+        	isFacingBackward = false;
+
+					isMoving = true;
+
+					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+			} else if (Input.GetKey(KeyCode.DownArrow) && (!isMoving || isMovedForward)) // Move forward
   			{
   				isMovedForward = true;
+					isMovedLeft = false;
+					isMovedRight = false;
   				isMovedBackward = false;
 
           isFacingLeft = false;
@@ -73,38 +80,49 @@ public class PlayerMovementDefault : MonoBehaviour {
           isFacingForward = true;
           isFacingBackward = false;
 
-  				AnimatingMoveUD(isMovedForward, isMovedBackward);
-  			} else if (Input.GetKey(KeyCode.UpArrow)) { // Move backward
+					isMoving = true;
+
+  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+  		} else if (Input.GetKey(KeyCode.UpArrow) && (!isMoving || isMovedBackward)) // Move backward
+				{
   				isMovedBackward = true;
+					isMovedLeft = false;
+					isMovedRight = false;
   				isMovedForward = false;
 
-          isFacingLeft = false;
-          isFacingRight = false;
-          isFacingForward = false;
-          isFacingBackward = true;
+        	isFacingLeft = false;
+        	isFacingRight = false;
+        	isFacingForward = false;
+        	isFacingBackward = true;
 
-  				AnimatingMoveUD(isMovedForward, isMovedBackward);
-  			} else { // Doesn't move
-  				isMovedForward = false;
-  				isMovedBackward = false;
-  				AnimatingMoveUD(isMovedForward, isMovedBackward);
-  			}
+					isMoving = true;
+
+  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+			} else // Doesn't move
+				{
+					isMovedLeft = false;
+					isMovedRight = false;
+					isMovedForward = false;
+					isMovedBackward = false;
+
+					isMoving = false;
+
+					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+				}
 
 		if (isMovedRight)
 			{
 				transform.Translate(Vector3.right * Time.deltaTime * speed);
 		} else if (isMovedLeft) {
 				transform.Translate(Vector3.left * Time.deltaTime * speed);
-		}
-    if (isMovedBackward)
-			{
+		} else if (isMovedBackward) {
 				transform.Translate(Vector3.up * Time.deltaTime * speed);
 		} else if (isMovedForward) {
 				transform.Translate(Vector3.down * Time.deltaTime * speed);
 		}
 
     if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward) {
-        AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward);
+        AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
       }
 
 
@@ -127,23 +145,21 @@ public class PlayerMovementDefault : MonoBehaviour {
 	  }
   }
 
-	void AnimatingMoveLR(bool isMovedLeft, bool isMovedRight)	{
+	void AnimatingMove(bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward)	{
 		anim.SetBool ("isMovedLeft", isMovedLeft);
 		anim.SetBool ("isMovedRight", isMovedRight);
-	}
-  void AnimatingMoveUD(bool isMovedForward, bool isMovedBackward)	{
-    anim.SetBool ("isMovedForward", isMovedForward);
-    anim.SetBool ("isMovedBackward", isMovedBackward);
+		anim.SetBool ("isMovedForward", isMovedForward);
+		anim.SetBool ("isMovedBackward", isMovedBackward);
 	}
 
-  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward) {
+  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward, bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward) {
     anim.SetBool ("isFacingLeft", isFacingLeft);
     anim.SetBool ("isFacingRight", isFacingRight);
     anim.SetBool ("isFacingForward", isFacingForward);
     anim.SetBool ("isFacingBackward", isFacingBackward);
   }
 
-	void AnimatingAttack (bool isAttackingRight, bool isAttackingLeft, bool isAttackingForward, bool isAttackingBackward) {
+	void AnimatingAttack (bool isAttackingLeft, bool isAttackingRight, bool isAttackingForward, bool isAttackingBackward) {
 		anim.SetBool ("isAttackingRight", isAttackingRight);
 		anim.SetBool ("isAttackingLeft", isAttackingLeft);
     anim.SetBool ("isAttackingForward", isAttackingForward);
