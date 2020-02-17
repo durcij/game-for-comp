@@ -126,19 +126,19 @@ public class PlayerMovementDefault : MonoBehaviour {
       }
 
 
-		if (Input.GetKey(KeyCode.Space) && hasAttacked == false && isFacingRight == true) {
+		if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingRight == true) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
-		}	else if (Input.GetKey(KeyCode.Space) && hasAttacked == false && isFacingLeft == true) {
+		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingLeft == true) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
-		} else if (Input.GetKey(KeyCode.Space) && hasAttacked == false && isFacingForward == true) {
+		} else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingForward == true) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
-    } else if (Input.GetKey(KeyCode.Space) && hasAttacked == false && isFacingBackward == true) {
+    } else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingBackward == true) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
