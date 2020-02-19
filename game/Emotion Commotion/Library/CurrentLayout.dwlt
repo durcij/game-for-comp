@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 1654
+  controlID: 1353
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 1525
+  controlID: 1541
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 1504
+  controlID: 1520
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 3746
+  m_LastSelectedObjectID: 3754
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -502,14 +502,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 1107758994879681948, guid: ef77f9aecc0da43cc9193bc6993c8114, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.5106726
+    - e00: 0.56799054
       e01: 0
       e02: 0
-      e03: -88.857025
+      e03: -35.727417
       e10: 0
-      e11: 0.5106726
+      e11: 0.56799054
       e12: 0
-      e13: 157.78473
+      e13: 96.96066
       e20: 0
       e21: 0
       e22: 1
@@ -559,9 +559,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b60e0000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: defbffff00000000
+    m_ExpandedIDs: e0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -622,11 +622,11 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Characters/Risio/Animations
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Characters/Risio/Animations
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion
     Commotion
@@ -634,9 +634,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 680a0000
-    m_LastClickedID: 2664
-    m_ExpandedIDs: 00000000f2080000160b00002a0c0000580c0000c40c0000320e000000ca9a3b
+    m_SelectedIDs: 3a0d0000
+    m_LastClickedID: 3386
+    m_ExpandedIDs: 00000000f60800001a0b00002e0c00005c0c0000c80c0000360e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -664,7 +664,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f2080000160b00002a0c0000580c0000c40c0000320e000000ca9a3b
+    m_ExpandedIDs: 00000000f60800001a0b00002e0c00005c0c0000c80c0000360e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

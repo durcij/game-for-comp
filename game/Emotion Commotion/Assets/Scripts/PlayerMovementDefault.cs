@@ -34,7 +34,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		speed = 2.0f;
+		speed = 3.0f;
 
 		checkAttack ();
 
