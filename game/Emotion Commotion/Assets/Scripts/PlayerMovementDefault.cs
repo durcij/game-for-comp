@@ -9,10 +9,10 @@ public class PlayerMovementDefault : MonoBehaviour {
 	bool isMovedRight = false;
   bool isMovedForward = false;
   bool isMovedBackward = false;
-  bool isAttackingLeft = false;
-  bool isAttackingRight = false;
-  bool isAttackingForward = false;
-  bool isAttackingBackward = false;
+  public bool isAttackingLeft = false;
+  public bool isAttackingRight = false;
+  public bool isAttackingForward = false;
+  public bool isAttackingBackward = false;
   bool isFacingLeft = false;
   bool isFacingRight = false;
   bool isFacingForward = true;
@@ -21,7 +21,6 @@ public class PlayerMovementDefault : MonoBehaviour {
 	bool isMoving = false;
 	Animator anim;
   AudioSource attack;
-	private int wait;
 	public float attackWait = 0.5f;
 	float timer;
 
