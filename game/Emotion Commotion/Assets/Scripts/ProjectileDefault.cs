@@ -6,9 +6,12 @@ public class ProjectileDefault : MonoBehaviour {
 
 	public float speed;
 	bool isFired = false;
+	bool alive = true;
 	Animator anim;
 	float timer;
 	public float lifespan = 0.5f;
+	PlayerMovementDefault PlayerData = new PlayerMovementDefault();
+
 
 	// Use this for initialization
 	void Awake () {
@@ -20,20 +23,22 @@ public class ProjectileDefault : MonoBehaviour {
 
 		speed = 5.0f;
 
-		if (CheckLifespan()) {
-			if (PlayerMovementDefault().isAttackingForward.value) {
+		CheckLifespan ();
+
+		if (alive) {
+			if (PlayerData.isAttackingForward) {
 				isFired = true;
 				transform.Translate(Vector3.down * Time.deltaTime * speed);
 				AnimatingProjectile(isFired);
-			} else if (PlayerMovementDefault.isAttackingBackward) {
+			} else if (PlayerData.isAttackingBackward) {
 				isFired = true;
 				transform.Translate(Vector3.up * Time.deltaTime * speed);
 				AnimatingProjectile(isFired);
-			} else if (PlayerMovementDefault.isAttackingLeft) {
+			} else if (PlayerData.isAttackingLeft) {
 				isFired = true;
 				transform.Translate(Vector3.left * Time.deltaTime * speed);
 				AnimatingProjectile(isFired);
-			} else if (PlayerMovementDefault.isAttackingRight) {
+			} else if (PlayerData.isAttackingRight) {
 				isFired = true;
 				transform.Translate(Vector3.right * Time.deltaTime * speed);
 				AnimatingProjectile(isFired);
@@ -41,16 +46,17 @@ public class ProjectileDefault : MonoBehaviour {
 		} else {
 			// Kill projectile
 			isFired = false;
+			AnimatingProjectile(isFired);
 		}
 	}
 
-	bool CheckLifespan () {
-		bool alive = true;
+	void CheckLifespan () {
 		timer += Time.deltaTime;
-		if (timer >= lifespan) {
+		if (timer <= lifespan) {
+			alive = true;
+		} else {
 			alive = false;
 		}
-		return alive;
 	}
 
 	void AnimatingProjectile(bool isFired) {
