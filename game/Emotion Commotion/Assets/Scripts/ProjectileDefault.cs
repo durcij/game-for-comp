@@ -48,7 +48,7 @@ public class ProjectileDefault : MonoBehaviour {
 				AnimatingProjectile(isFired);
 			}
 		} else {
-			// Kill projectile
+			// Kill projectile animation
 			AnimatingProjectile(isFired);
 		}
 	}
