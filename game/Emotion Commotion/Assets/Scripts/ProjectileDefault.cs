@@ -11,11 +11,14 @@ public class ProjectileDefault : MonoBehaviour {
 	float timer;
 	public float lifespan = 0.5f;
 	PlayerMovementDefault PlayerData = new PlayerMovementDefault();
+	Vector3 originalPosition;
 
 
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent <Animator> ();
+
+		originalPosition = gameObject.transform.position; // Sets the projectile's original position
 	}
 
 	// Update is called once per frame
@@ -25,6 +28,7 @@ public class ProjectileDefault : MonoBehaviour {
 
 		CheckLifespan ();
 
+		// New if based on player attack methods from before?
 		if (alive) {
 			if (PlayerData.isAttackingForward) {
 				isFired = true;
@@ -52,7 +56,7 @@ public class ProjectileDefault : MonoBehaviour {
 
 	void CheckLifespan () {
 		timer += Time.deltaTime;
-		if (timer <= lifespan) {
+		if (timer >= lifespan) {
 			alive = true;
 		} else {
 			alive = false;
@@ -61,5 +65,9 @@ public class ProjectileDefault : MonoBehaviour {
 
 	void AnimatingProjectile(bool isFired) {
 		anim.SetBool ("isFired", isFired);
+	}
+
+	void notAnimatingProjectile(bool alive){
+		anim.SetBool ("alive", alive);
 	}
 }
