@@ -29,7 +29,7 @@ public class ProjectileDefault : MonoBehaviour {
 		CheckLifespan ();
 
 		// New if based on player attack methods from before?
-		if (alive) {
+		if (!isFired) {
 			if (PlayerData.isAttackingForward) {
 				isFired = true;
 				transform.Translate(Vector3.down * Time.deltaTime * speed);
@@ -49,7 +49,6 @@ public class ProjectileDefault : MonoBehaviour {
 			}
 		} else {
 			// Kill projectile
-			isFired = false;
 			AnimatingProjectile(isFired);
 		}
 	}
@@ -57,17 +56,11 @@ public class ProjectileDefault : MonoBehaviour {
 	void CheckLifespan () {
 		timer += Time.deltaTime;
 		if (timer >= lifespan) {
-			alive = true;
-		} else {
-			alive = false;
+			isFired = false;
 		}
 	}
 
 	void AnimatingProjectile(bool isFired) {
 		anim.SetBool ("isFired", isFired);
-	}
-
-	void notAnimatingProjectile(bool alive){
-		anim.SetBool ("alive", alive);
 	}
 }
