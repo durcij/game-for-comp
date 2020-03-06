@@ -21,6 +21,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 	bool isMoving = false;
 	Animator anim;
   AudioSource attack;
+	Rigidbody2D physics;
 	public float attackWait = 0.5f;
 	float timer;
 
@@ -28,99 +29,107 @@ public class PlayerMovementDefault : MonoBehaviour {
 	void Awake () {
 		anim = GetComponent <Animator> ();
 		attack = GetComponent<AudioSource> ();
+		physics = GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		speed = 3.0f;
+		speed = 125.0f;
 
 		checkAttack ();
 
-		if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
-			{
-				isMovedLeft = true;
-				isMovedRight = false;
-				isMovedForward = false;
-				isMovedBackward = false;
-
-        isFacingLeft = true;
-        isFacingRight = false;
-        isFacingForward = false;
-        isFacingBackward = false;
-
-				isMoving = true;
-
-				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-			} else if (Input.GetKey(KeyCode.RightArrow) && (!isMoving || isMovedRight)) // Move right
+		if (!hasAttacked){
+			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 				{
-					isMovedRight = true;
-					isMovedLeft = false;
-					isMovedForward = false;
-					isMovedBackward = false;
-
-        	isFacingLeft = false;
-        	isFacingRight = true;
-        	isFacingForward = false;
-        	isFacingBackward = false;
-
-					isMoving = true;
-
-					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-			} else if (Input.GetKey(KeyCode.DownArrow) && (!isMoving || isMovedForward)) // Move forward
-  			{
-  				isMovedForward = true;
-					isMovedLeft = false;
-					isMovedRight = false;
-  				isMovedBackward = false;
-
-          isFacingLeft = false;
-          isFacingRight = false;
-          isFacingForward = true;
-          isFacingBackward = false;
-
-					isMoving = true;
-
-  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-  		} else if (Input.GetKey(KeyCode.UpArrow) && (!isMoving || isMovedBackward)) // Move backward
-				{
-  				isMovedBackward = true;
-					isMovedLeft = false;
-					isMovedRight = false;
-  				isMovedForward = false;
-
-        	isFacingLeft = false;
-        	isFacingRight = false;
-        	isFacingForward = false;
-        	isFacingBackward = true;
-
-					isMoving = true;
-
-  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-			} else // Doesn't move
-				{
-					isMovedLeft = false;
+					isMovedLeft = true;
 					isMovedRight = false;
 					isMovedForward = false;
 					isMovedBackward = false;
 
-					isMoving = false;
+	        isFacingLeft = true;
+	        isFacingRight = false;
+	        isFacingForward = false;
+	        isFacingBackward = false;
+
+					isMoving = true;
 
 					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-				}
+				} else if (Input.GetKey(KeyCode.RightArrow) && (!isMoving || isMovedRight)) // Move right
+					{
+						isMovedRight = true;
+						isMovedLeft = false;
+						isMovedForward = false;
+						isMovedBackward = false;
+
+	        	isFacingLeft = false;
+	        	isFacingRight = true;
+	        	isFacingForward = false;
+	        	isFacingBackward = false;
+
+						isMoving = true;
+
+						AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+				} else if (Input.GetKey(KeyCode.DownArrow) && (!isMoving || isMovedForward)) // Move forward
+	  			{
+	  				isMovedForward = true;
+						isMovedLeft = false;
+						isMovedRight = false;
+	  				isMovedBackward = false;
+
+	          isFacingLeft = false;
+	          isFacingRight = false;
+	          isFacingForward = true;
+	          isFacingBackward = false;
+
+						isMoving = true;
+
+	  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+	  		} else if (Input.GetKey(KeyCode.UpArrow) && (!isMoving || isMovedBackward)) // Move backward
+					{
+	  				isMovedBackward = true;
+						isMovedLeft = false;
+						isMovedRight = false;
+	  				isMovedForward = false;
+
+	        	isFacingLeft = false;
+	        	isFacingRight = false;
+	        	isFacingForward = false;
+	        	isFacingBackward = true;
+
+						isMoving = true;
+
+	  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+				} else // Doesn't move
+					{
+						isMovedLeft = false;
+						isMovedRight = false;
+						isMovedForward = false;
+						isMovedBackward = false;
+
+						isMoving = false;
+
+						AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+					}
+		}
 
 		if (isMovedRight)
 			{
-				transform.Translate(Vector3.right * Time.deltaTime * speed);
+				// transform.Translate(Vector3.right * Time.deltaTime * speed);
+				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
 		} else if (isMovedLeft) {
-				transform.Translate(Vector3.left * Time.deltaTime * speed);
+				// transform.Translate(Vector3.left * Time.deltaTime * speed);
+				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
 		} else if (isMovedBackward) {
-				transform.Translate(Vector3.up * Time.deltaTime * speed);
+				// transform.Translate(Vector3.up * Time.deltaTime * speed);
+				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
 		} else if (isMovedForward) {
-				transform.Translate(Vector3.down * Time.deltaTime * speed);
+				// transform.Translate(Vector3.down * Time.deltaTime * speed);
+				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
 		}
 
     if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward) {
+				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
         AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
       }
 
