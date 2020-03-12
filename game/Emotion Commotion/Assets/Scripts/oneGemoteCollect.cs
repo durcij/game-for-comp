@@ -5,6 +5,7 @@ using UnityEngine;
 public class oneGemoteCollect : MonoBehaviour {
 
 	AudioSource collected;
+  Animator anim;
   float timer;
   float soundWait;
   bool destroy = false;
@@ -12,6 +13,7 @@ public class oneGemoteCollect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		collected = GetComponent<AudioSource>();
+    anim = GetComponent<Animator>();
     timer = 0.0f;
     soundWait = 0.5f;
 	}
@@ -19,6 +21,7 @@ public class oneGemoteCollect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     if (destroy) {
+      anim.SetBool ("collected", destroy);
       timer += Time.deltaTime;
       if (timer >= soundWait) {
         Destroy(gameObject);
