@@ -35,7 +35,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		speed = 125.0f;
+		speed = 140.0f;
 
 		checkAttack ();
 
@@ -138,18 +138,22 @@ public class PlayerMovementDefault : MonoBehaviour {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
+			attack.Play();
 		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingLeft == true) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
+			attack.Play();
 		} else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingForward == true) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
+			attack.Play();
     } else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingBackward == true) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
+			attack.Play();
 	  }
   }
 
