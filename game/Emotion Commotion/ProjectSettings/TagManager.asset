@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collectible
+  - 1 Gemote
+  - 5 Gemotes
+  - 10 Gemotes
+  - 25 Gemotes
+  - 50 Gemotes
+  - 100 Gemotes
+  - Risio Projectile
+  - Furia Projectile
   layers:
   - Default
   - TransparentFX

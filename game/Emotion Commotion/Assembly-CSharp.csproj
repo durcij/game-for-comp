@@ -54,8 +54,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Crate.cs" />
-     <Compile Include="Assets\Scripts\oneGemoteCollect.cs" />
+     <Compile Include="Assets\Scripts\GemoteCollect.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
+     <Compile Include="Assets\Scripts\PlayerScoreDefault.cs" />
      <Compile Include="Assets\Scripts\ProjectileDefault.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion Commotion/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
