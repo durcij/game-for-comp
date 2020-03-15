@@ -11,7 +11,9 @@ public class Crate : MonoBehaviour {
 	float breakWait;
 	Animator anim;
 	AudioSource crateBreak;
-
+	public GameObject oneGemote;
+	public GameObject fiveGemotes;
+	public GameObject tenGemotes;
 
 	// Use this for initialization
 	void Start () {
@@ -48,5 +50,11 @@ public class Crate : MonoBehaviour {
 				intact = false;
 			}
 		}
+	}
+
+	void SpawnGemotes() {
+		float randomPosition = (Random.Range(2, 4) / 100); // Can't be a float... find solution
+		Debug.Log(randomPosition);
+		Instantiate(oneGemote, randomPosition, 0);
 	}
 }
