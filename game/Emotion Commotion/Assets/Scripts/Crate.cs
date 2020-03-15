@@ -18,7 +18,10 @@ public class Crate : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (!intact) {
+			anim.SetBool ("intact", intact);
+			crateBreak.Play();
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
