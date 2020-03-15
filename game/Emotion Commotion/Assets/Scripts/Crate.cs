@@ -7,8 +7,6 @@ public class Crate : MonoBehaviour {
 	bool intact;
 	Animator anim;
 	AudioSource crateBreak;
-	GameObject attackRisio;
-	CircleCollider2D hurtBox;
 
 
 	// Use this for initialization
@@ -16,14 +14,18 @@ public class Crate : MonoBehaviour {
 		intact = true;
 		anim = GetComponent <Animator> ();
 		crateBreak = GetComponent<AudioSource> ();
-		attackRisio = GameObject.Find("RisioAttack");
-		hurtBox = attackRisio.GetComponent<CircleCollider2D>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+	}
 
-
+	void OnTriggerEnter2D (Collider2D other){
+		if (intact) {
+			if (other.tag == "Risio Projectile" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
+				intact = false;
+			}
+		}
 	}
 }
