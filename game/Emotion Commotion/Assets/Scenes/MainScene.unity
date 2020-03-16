@@ -3555,7 +3555,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558078744}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -4330,7 +4330,7 @@ MonoBehaviour:
   isAttackingRight: 0
   isAttackingForward: 0
   isAttackingBackward: 0
-  attackWait: 0.5
+  attackWait: 0
 --- !u!50 &1717981732
 Rigidbody2D:
   serializedVersion: 4

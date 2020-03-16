@@ -13,7 +13,7 @@ public class ProjectileDefault : MonoBehaviour {
 	bool alive = true;
 	Animator anim;
 	float timer;
-	public float lifespan = 0.5f;
+	public float lifespan;
 	Vector3 spawnPosition;
 	GameObject player;
 	PlayerMovementDefault playerData;
@@ -28,17 +28,20 @@ public class ProjectileDefault : MonoBehaviour {
 		speed = 3.0f;
 
 		playerData = player.GetComponent<PlayerMovementDefault>();
+
+		transform.position = player.transform.position;
+
+		lifespan = 0.5f;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 		CheckLifespan ();
-
+		spawnPosition = player.transform.position; // Sets the projectile's spawn position
 		// New if based on player attack methods from before?
 
 		if (!isFired){
-			spawnPosition = player.transform.position; // Sets the projectile's spawn position
 			AnimatingProjectile(isFired);
 			transform.position = spawnPosition;
 			if (playerData.isAttackingLeft) {
@@ -52,7 +55,7 @@ public class ProjectileDefault : MonoBehaviour {
 			}
 		}
 
-		if (isFiredLeft || isFiredRight || isFiredForward || isFiredBackward) {
+		if ((isFiredLeft || isFiredRight || isFiredForward || isFiredBackward) && !isFired) {
 			isFired = true;
 		}
 
@@ -76,13 +79,13 @@ public class ProjectileDefault : MonoBehaviour {
 	void CheckLifespan () {
 		if (isFired) {
 			timer += Time.deltaTime;
-			if (timer >= lifespan) {
+			if (timer > lifespan) {
 				isFired = false;
 				isFiredLeft = false;
 				isFiredRight = false;
 				isFiredForward = false;
 				isFiredBackward = false;
-				timer = 0.0f;
+				timer = timer - lifespan;
 			}
 		}
 	}

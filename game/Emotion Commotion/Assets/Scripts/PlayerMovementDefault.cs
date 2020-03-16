@@ -22,7 +22,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 	Animator anim;
   AudioSource attack;
 	Rigidbody2D physics;
-	public float attackWait = 0.5f;
+	public float attackWait;
 	float timer;
 
 
@@ -30,12 +30,12 @@ public class PlayerMovementDefault : MonoBehaviour {
 		anim = GetComponent <Animator> ();
 		attack = GetComponent<AudioSource> ();
 		physics = GetComponent<Rigidbody2D> ();
+		attackWait = 2.5f;
+		speed = 140.0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-		speed = 140.0f;
 
 		checkAttack ();
 
@@ -129,27 +129,27 @@ public class PlayerMovementDefault : MonoBehaviour {
 		}
 
     if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward) {
-				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
-        AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-      }
+			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+      AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+    }
 
 
-		if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingRight == true) {
+		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingLeft == true) {
+		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-		} else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingForward == true) {
+		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-    } else if (Input.GetKey(KeyCode.Space) && !isMoving && hasAttacked == false && isFacingBackward == true) {
+    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
@@ -180,14 +180,14 @@ public class PlayerMovementDefault : MonoBehaviour {
 
 	void checkAttack () {
 		timer += Time.deltaTime;
-		if (timer >= attackWait) {
+		if (timer > attackWait) {
 			isAttackingLeft = false;
 			isAttackingRight = false;
       isAttackingForward = false;
       isAttackingBackward = false;
 			AnimatingAttack (isAttackingRight, isAttackingLeft, isAttackingForward, isAttackingBackward);
 			hasAttacked = false;
-			timer = 0f;
+			timer = timer - attackWait;
 		}
 	}
 }
