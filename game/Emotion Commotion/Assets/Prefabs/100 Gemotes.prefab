@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251544195212354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.48, z: 0}
+  m_LocalPosition: {x: 1.49, y: -0.293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,14 +68,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.04, y: 0.12}
-      - {x: -0.12, y: 0.04}
-      - {x: -0.12, y: -0.04}
-      - {x: -0.04, y: -0.12}
-      - {x: 0.04, y: -0.12}
-      - {x: 0.12, y: -0.04}
-      - {x: 0.12, y: 0.04}
-      - {x: 0.04, y: 0.12}
+    - - {x: -0.04, y: 0.08}
+      - {x: -0.08, y: 0.04}
+      - {x: -0.08, y: -0.04}
+      - {x: -0.04, y: -0.08}
+      - {x: 0.04, y: -0.08}
+      - {x: 0.08, y: -0.04}
+      - {x: 0.08, y: 0.04}
+      - {x: 0.04, y: 0.08}
 --- !u!82 &82790378518848262
 AudioSource:
   m_ObjectHideFlags: 1
