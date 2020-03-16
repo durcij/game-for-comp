@@ -24,13 +24,15 @@ public class PlayerMovementDefault : MonoBehaviour {
 	Rigidbody2D physics;
 	public float attackWait;
 	float timer;
+	public GameObject risioAttack;
 
 
 	void Awake () {
 		anim = GetComponent <Animator> ();
 		attack = GetComponent<AudioSource> ();
 		physics = GetComponent<Rigidbody2D> ();
-		attackWait = 2.5f;
+		timer = 0.0f;
+		attackWait = 0.5f;
 		speed = 140.0f;
 	}
 
@@ -39,7 +41,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 
 		checkAttack ();
 
-		if (!hasAttacked){
+		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward){
 			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
@@ -139,21 +141,25 @@ public class PlayerMovementDefault : MonoBehaviour {
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
+			Instantiate(risioAttack, transform.position, Quaternion.identity);
 		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
+			Instantiate(risioAttack, transform.position, Quaternion.identity);
 		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
+			Instantiate(risioAttack, transform.position, Quaternion.identity);
     } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
+			Instantiate(risioAttack, transform.position, Quaternion.identity);
 	  }
   }
 

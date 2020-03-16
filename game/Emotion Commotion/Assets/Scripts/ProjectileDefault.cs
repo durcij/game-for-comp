@@ -5,14 +5,14 @@ using UnityEngine;
 public class ProjectileDefault : MonoBehaviour {
 
 	public float speed;
-	bool isFiredLeft = false;
-	bool isFiredRight = false;
-	bool isFiredForward = false;
-	bool isFiredBackward = false;
-	bool isFired = false;
+	public bool isFiredLeft = false;
+	public bool isFiredRight = false;
+	public bool isFiredForward = false;
+	public bool isFiredBackward = false;
+	public bool isFired = false;
 	bool alive = true;
 	Animator anim;
-	float timer;
+	public float timer;
 	public float lifespan;
 	Vector3 spawnPosition;
 	GameObject player;
@@ -31,6 +31,8 @@ public class ProjectileDefault : MonoBehaviour {
 
 		transform.position = player.transform.position;
 
+		timer = 0.0f;
+
 		lifespan = 0.5f;
 	}
 
@@ -41,7 +43,7 @@ public class ProjectileDefault : MonoBehaviour {
 		spawnPosition = player.transform.position; // Sets the projectile's spawn position
 		// New if based on player attack methods from before?
 
-		if (!isFired){
+		if (!isFired && !isFiredLeft && !isFiredRight && !isFiredForward && !isFiredBackward){
 			AnimatingProjectile(isFired);
 			transform.position = spawnPosition;
 			if (playerData.isAttackingLeft) {
@@ -85,7 +87,7 @@ public class ProjectileDefault : MonoBehaviour {
 				isFiredRight = false;
 				isFiredForward = false;
 				isFiredBackward = false;
-				timer = timer - lifespan;
+				Destroy(gameObject);
 			}
 		}
 	}
