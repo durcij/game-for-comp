@@ -6451,7 +6451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312012669}
   m_Layer: 10
-  m_Name: Nullos
+  m_Name: Nullos NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9665,7 +9665,7 @@ GameObject:
   - component: {fileID: 1841777210}
   - component: {fileID: 1841777211}
   m_Layer: 10
-  m_Name: Body
+  m_Name: Nullos
   m_TagString: Nullos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9904,6 +9904,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd1fc9e61f134d6ebdf7acee4d8bcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fiveGemotes: {fileID: 1543741304833886, guid: 14c850d098cc84a849bb7ebb5f7a5b10,
+    type: 2}
+  tenGemotes: {fileID: 1229210393994638, guid: c18cc70ad60c741049905ce275868e90, type: 2}
+  twentyFiveGemotes: {fileID: 1744833509387730, guid: fb9daf192e65c462cbb69c845e8adc09,
+    type: 2}
 --- !u!1001 &1842125038
 Prefab:
   m_ObjectHideFlags: 0

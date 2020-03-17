@@ -10,6 +10,7 @@ public class Nullos : MonoBehaviour {
 	float speed;
 
 	bool alive;
+	bool dying;
 	bool runningLeft;
 	bool runningRight;
 	bool runningForward;
@@ -31,6 +32,8 @@ public class Nullos : MonoBehaviour {
 		deathWait = 0.6667f;
 		speed = 2.0f;
 
+		alive = true;
+		dying = false;
 		runningLeft = false;
 		runningRight = false;
 		runningForward = false;
@@ -47,11 +50,12 @@ public class Nullos : MonoBehaviour {
 		if (!alive) {
 			anim.SetBool ("dead", alive);
 			timer += Time.deltaTime;
-			if (timer >= deathSoundWait) {
+			if (timer >= deathSoundWait && !dying) {
+				dying = true;
 				death.Play();
 				SpawnGemotes();
 			} else if (timer >= deathWait) {
-				Destroy(gameObject)
+				Destroy(gameObject);
 			}
 		} else if (runningRight) {
 			transform.Translate(Vector3.right * Time.deltaTime * speed);
@@ -84,7 +88,7 @@ public class Nullos : MonoBehaviour {
 		Instantiate(twentyFiveGemotes, new Vector3((transform.position.x + Random.Range(-0.06f, 0.06f)), ((transform.position.y - 0.08f) + Random.Range(-0.08f, 0.08f)), 0), Quaternion.identity);
 	}
 
-	void AnimatingRun(runningLeft, runningRight){
+	void AnimatingRun(bool runningLeft, bool runningRight){
 		anim.SetBool ("runningLeft", runningLeft);
 		anim.SetBool ("runningRight", runningRight);
 	}
