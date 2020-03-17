@@ -19,12 +19,18 @@ public class PlayerMovementDefault : MonoBehaviour {
   bool isFacingBackward = false;
   bool hasAttacked = false;
 	bool isMoving = false;
+	public bool hurt = false;
 	Animator anim;
   AudioSource attack;
 	Rigidbody2D physics;
 	public float attackWait;
 	float timer;
+	float harmWait;
+	float harmTimer;
 	public GameObject risioAttack;
+	public GameObject oneGemote;
+	public GameObject fiveGemotes;
+	int score;
 
 
 	void Awake () {
@@ -32,16 +38,34 @@ public class PlayerMovementDefault : MonoBehaviour {
 		attack = GetComponent<AudioSource> ();
 		physics = GetComponent<Rigidbody2D> ();
 		timer = 0.0f;
+		harmTimer = 0.0f;
 		attackWait = 0.5f;
+		harmWait = 0.2f;
 		speed = 140.0f;
+		score = GetComponent<PlayerScoreDefault>().score;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 		checkAttack ();
+		checkHarm ();
 
-		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward){
+		if(hurt) {
+			isMovedLeft = false;
+			isMovedRight = false;
+			isMovedForward = false;
+			isMovedBackward = false;
+
+			isFacingLeft = false;
+			isFacingRight = false;
+			isFacingForward = false;
+			isFacingBackward = false;
+			AnimatingPain(hurt);
+			SpawnGemotes();
+		}
+
+		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt){
 			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
@@ -115,46 +139,46 @@ public class PlayerMovementDefault : MonoBehaviour {
 					}
 		}
 
-		if (isMovedRight)
+		if (isMovedRight && !hurt && !hasAttacked)
 			{
 				// transform.Translate(Vector3.right * Time.deltaTime * speed);
 				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
-		} else if (isMovedLeft) {
+		} else if (isMovedLeft && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.left * Time.deltaTime * speed);
 				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
-		} else if (isMovedBackward) {
+		} else if (isMovedBackward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.up * Time.deltaTime * speed);
 				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
-		} else if (isMovedForward) {
+		} else if (isMovedForward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.down * Time.deltaTime * speed);
 				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
 		}
 
-    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward) {
+    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked) {
 			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
-      AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+      AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
     }
 
 
-		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true) {
+		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true && !hurt) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true) {
+		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true) {
+		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true && !hurt) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true) {
+    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
@@ -170,11 +194,13 @@ public class PlayerMovementDefault : MonoBehaviour {
 		anim.SetBool ("isMovedBackward", isMovedBackward);
 	}
 
-  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward, bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward) {
+  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward, bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward, bool hurt) {
     anim.SetBool ("isFacingLeft", isFacingLeft);
     anim.SetBool ("isFacingRight", isFacingRight);
     anim.SetBool ("isFacingForward", isFacingForward);
     anim.SetBool ("isFacingBackward", isFacingBackward);
+		anim.SetBool ("hurt", hurt);
+
   }
 
 	void AnimatingAttack (bool isAttackingLeft, bool isAttackingRight, bool isAttackingForward, bool isAttackingBackward) {
@@ -184,16 +210,54 @@ public class PlayerMovementDefault : MonoBehaviour {
     anim.SetBool ("isAttackingBackward", isAttackingBackward);
 	}
 
+	void AnimatingPain (bool hurt) {
+		anim.SetBool ("hurt", hurt);
+	}
+
 	void checkAttack () {
-		timer += Time.deltaTime;
-		if (timer > attackWait) {
-			isAttackingLeft = false;
-			isAttackingRight = false;
-      isAttackingForward = false;
-      isAttackingBackward = false;
-			AnimatingAttack (isAttackingRight, isAttackingLeft, isAttackingForward, isAttackingBackward);
-			hasAttacked = false;
-			timer = timer - attackWait;
+		if (hasAttacked) {
+			timer += Time.deltaTime;
+			if (timer > attackWait) {
+				isAttackingLeft = false;
+				isAttackingRight = false;
+	      isAttackingForward = false;
+	      isAttackingBackward = false;
+				AnimatingAttack (isAttackingRight, isAttackingLeft, isAttackingForward, isAttackingBackward);
+				hasAttacked = false;
+				timer = timer - attackWait;
+			}
+		}
+	}
+
+	void checkHarm () {
+		if (hurt){
+			harmTimer += Time.deltaTime;
+			if (harmTimer > harmWait) {
+				hurt = false;
+				AnimatingPain(hurt);
+				isFacingForward = true;
+				harmTimer = harmTimer - harmWait;
+			}
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D other){
+		if (other.tag == "Nullos") {
+			hurt = true;
+		}
+	}
+
+	void SpawnGemotes() {
+		score = GetComponent<PlayerScoreDefault>().score;
+		if (score >= 50) {
+			// Generates one gemote (totalling 50 gemotes) at a random position near the player
+			for (int i = 10; i > 0; i--) {
+				Instantiate(fiveGemotes, new Vector3((transform.position.x + Random.Range(-0.32f, 0.32f)), ((transform.position.y - 0.16f) + Random.Range(-0.32f, 0.32f)), 0), Quaternion.identity);
+			}
+		} else if (score < 50) {
+			for (int i = score; i > 0; i--) {
+				Instantiate(oneGemote, new Vector3((transform.position.x + Random.Range(-0.32f, 0.32f)), ((transform.position.y - 0.16f) + Random.Range(-0.32f, 0.32f)), 0), Quaternion.identity);
+			}
 		}
 	}
 }

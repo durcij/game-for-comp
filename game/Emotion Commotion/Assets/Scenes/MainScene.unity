@@ -4387,9 +4387,11 @@ GameObject:
   m_Component:
   - component: {fileID: 960691242}
   - component: {fileID: 960691243}
+  - component: {fileID: 960691244}
+  - component: {fileID: 960691245}
   m_Layer: 10
   m_Name: Patrol2
-  m_TagString: Untagged
+  m_TagString: Patrol 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4422,6 +4424,32 @@ CircleCollider2D:
   m_Offset: {x: 0.16, y: -0.02}
   serializedVersion: 2
   m_Radius: 0.03
+--- !u!58 &960691244
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960691241}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16, y: -0.02}
+  serializedVersion: 2
+  m_Radius: 0.04
+--- !u!114 &960691245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960691241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57e27ab859b24bb58d6df64024e1c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &960889855
 Prefab:
   m_ObjectHideFlags: 0
@@ -4478,6 +4506,7 @@ GameObject:
   - component: {fileID: 966756804}
   - component: {fileID: 966756806}
   - component: {fileID: 966756805}
+  - component: {fileID: 966756807}
   m_Layer: 9
   m_Name: RisioHurtBox
   m_TagString: Untagged
@@ -4607,7 +4636,18 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.18
+--- !u!114 &966756807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 966756803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff3a70642186409188fa82d3fe581c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &970697899
 Prefab:
   m_ObjectHideFlags: 0
@@ -6177,9 +6217,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1255469154}
   - component: {fileID: 1255469155}
+  - component: {fileID: 1255469157}
+  - component: {fileID: 1255469156}
   m_Layer: 10
   m_Name: Patrol1
-  m_TagString: Untagged
+  m_TagString: Patrol 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6207,11 +6249,37 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.16, y: -0.02}
   serializedVersion: 2
   m_Radius: 0.03
+--- !u!114 &1255469156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255469153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57e27ab859b24bb58d6df64024e1c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1255469157
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255469153}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.16, y: -0.02}
+  serializedVersion: 2
+  m_Radius: 0.04
 --- !u!1001 &1263993734
 Prefab:
   m_ObjectHideFlags: 0
@@ -6451,7 +6519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312012669}
   m_Layer: 10
-  m_Name: Nullos NPC
+  m_Name: Nullos RL NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9151,6 +9219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e999ab579561e45f08491258a6713a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
 --- !u!114 &1717981731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9167,8 +9236,12 @@ MonoBehaviour:
   isAttackingRight: 0
   isAttackingForward: 0
   isAttackingBackward: 0
+  hurt: 0
   attackWait: 0
   risioAttack: {fileID: 1448014433610390, guid: 6b67e082404b3403da341eb068a22cc7,
+    type: 2}
+  oneGemote: {fileID: 1887640837039414, guid: 4c44e82cd607e4827b628ce21a132401, type: 2}
+  fiveGemotes: {fileID: 1543741304833886, guid: 14c850d098cc84a849bb7ebb5f7a5b10,
     type: 2}
 --- !u!50 &1717981732
 Rigidbody2D:
@@ -9664,6 +9737,7 @@ GameObject:
   - component: {fileID: 1841777209}
   - component: {fileID: 1841777210}
   - component: {fileID: 1841777211}
+  - component: {fileID: 1841777212}
   m_Layer: 10
   m_Name: Nullos
   m_TagString: Nullos
@@ -9901,14 +9975,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1841777204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1fc9e61f134d6ebdf7acee4d8bcea, type: 3}
+  m_Script: {fileID: 11500000, guid: fa756126267604609935206e3febaa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runningLeft: 0
+  runningRight: 0
+  runningForward: 0
+  runningBackward: 0
   fiveGemotes: {fileID: 1543741304833886, guid: 14c850d098cc84a849bb7ebb5f7a5b10,
     type: 2}
   tenGemotes: {fileID: 1229210393994638, guid: c18cc70ad60c741049905ce275868e90, type: 2}
   twentyFiveGemotes: {fileID: 1744833509387730, guid: fb9daf192e65c462cbb69c845e8adc09,
     type: 2}
+--- !u!50 &1841777212
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841777204}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1842125038
 Prefab:
   m_ObjectHideFlags: 0

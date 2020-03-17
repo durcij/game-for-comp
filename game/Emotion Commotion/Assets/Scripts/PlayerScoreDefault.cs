@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerScoreDefault : MonoBehaviour {
-	public static int score;
+	public int score;
 	GameObject scoreDisplay;
 	Text text;
 	bool newFrame;
@@ -38,6 +38,12 @@ public class PlayerScoreDefault : MonoBehaviour {
 				score += 100;
 			}
 			newFrame = false;
+		} else if (other.tag == "Nullos") {
+			if (score > 50) {
+				score -= 50;
+			} else {
+				score = 0;
+			}
 		}
 	}
 }
