@@ -185,6 +185,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
 	  }
+		score = GetComponent<PlayerScoreDefault>().score;
   }
 
 	void AnimatingMove(bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward)	{
@@ -248,7 +249,6 @@ public class PlayerMovementDefault : MonoBehaviour {
 	}
 
 	void SpawnGemotes() {
-		score = GetComponent<PlayerScoreDefault>().score;
 		if (score >= 50) {
 			// Generates one gemote (totalling 50 gemotes) at a random position near the player
 			for (int i = 10; i > 0; i--) {

@@ -29,7 +29,7 @@ public class NullosRL : MonoBehaviour {
 
 		timer = 0.0f;
 		deathSoundWait = 0.2f;
-		deathWait = 0.6667f;
+		deathWait = 0.665f;
 		speed = 50.0f;
 
 		alive = true;
