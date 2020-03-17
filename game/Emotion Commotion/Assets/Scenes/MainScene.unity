@@ -4386,6 +4386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960691242}
+  - component: {fileID: 960691243}
   m_Layer: 10
   m_Name: Patrol2
   m_TagString: Untagged
@@ -4406,6 +4407,21 @@ Transform:
   m_Father: {fileID: 1312012669}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &960691243
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960691241}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16, y: -0.02}
+  serializedVersion: 2
+  m_Radius: 0.03
 --- !u!1001 &960889855
 Prefab:
   m_ObjectHideFlags: 0
@@ -6160,6 +6176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1255469154}
+  - component: {fileID: 1255469155}
   m_Layer: 10
   m_Name: Patrol1
   m_TagString: Untagged
@@ -6180,6 +6197,21 @@ Transform:
   m_Father: {fileID: 1312012669}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1255469155
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255469153}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.16, y: -0.02}
+  serializedVersion: 2
+  m_Radius: 0.03
 --- !u!1001 &1263993734
 Prefab:
   m_ObjectHideFlags: 0

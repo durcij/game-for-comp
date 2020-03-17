@@ -19,6 +19,8 @@ TagManager:
   - Invidia Projectile
   - Mercuria Projectile
   - Nullos
+  - Patrol 1
+  - Patrol 2
   layers:
   - Default
   - TransparentFX
