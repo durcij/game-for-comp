@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Crate.cs" />
      <Compile Include="Assets\Scripts\GemoteCollect.cs" />
+     <Compile Include="Assets\Scripts\Nullos.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreDefault.cs" />
      <Compile Include="Assets\Scripts\ProjectileDefault.cs" />
