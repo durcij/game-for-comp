@@ -43,7 +43,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 		harmTimer = 0.0f;
 		attackWait = 0.5f;
 		harmWait = 0.5f;
-		speed = 120.0f;
+		speed = 140.0f;
 		score = GetComponent<PlayerScoreRisio>().score;
 		pain = GameObject.Find("RisioHurtBox").GetComponent<AudioSource>();
 		vulnerable = true;
