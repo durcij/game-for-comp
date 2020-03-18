@@ -41,7 +41,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 		harmTimer = 0.0f;
 		attackWait = 0.5f;
 		harmWait = 0.2f;
-		speed = 140.0f;
+		speed = 120.0f;
 		score = GetComponent<PlayerScoreDefault>().score;
 	}
 
@@ -243,7 +243,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
-		if (other.tag == "Nullos") {
+		if (other.tag == "Nullos" || other.tag == "Risio Projectile" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
 			hurt = true;
 		}
 	}

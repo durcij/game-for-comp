@@ -60,7 +60,9 @@
      <Compile Include="Assets\Scripts\PatrolPoint.cs" />
      <Compile Include="Assets\Scripts\PlayerHurt.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovementRisio.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreDefault.cs" />
+     <Compile Include="Assets\Scripts\PlayerScoreRisio.cs" />
      <Compile Include="Assets\Scripts\ProjectileDefault.cs" />
      <Compile Include="Assets\Scripts\Statue.cs" />
  <Reference Include="UnityEditor.StandardEvents">
