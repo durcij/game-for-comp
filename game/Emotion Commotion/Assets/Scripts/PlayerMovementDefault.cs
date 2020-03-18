@@ -9,10 +9,10 @@ public class PlayerMovementDefault : MonoBehaviour {
 	bool isMovedRight = false;
   bool isMovedForward = false;
   bool isMovedBackward = false;
-  bool isAttackingLeft = false;
-  bool isAttackingRight = false;
-  bool isAttackingForward = false;
-  bool isAttackingBackward = false;
+  public bool isAttackingLeft = false;
+  public bool isAttackingRight = false;
+  public bool isAttackingForward = false;
+  public bool isAttackingBackward = false;
   bool isFacingLeft = false;
   bool isFacingRight = false;
   bool isFacingForward = true;
@@ -57,6 +57,9 @@ public class PlayerMovementDefault : MonoBehaviour {
 
 		if(hurt && vulnerable) {
 			vulnerable = false;
+
+			isMoving = false;
+
 			isMovedLeft = false;
 			isMovedRight = false;
 			isMovedForward = false;
@@ -67,6 +70,8 @@ public class PlayerMovementDefault : MonoBehaviour {
 			isFacingForward = false;
 			isFacingBackward = false;
 			AnimatingPain(hurt);
+			AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+			AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
 			pain.Play();
 			SpawnGemotes();
 		}

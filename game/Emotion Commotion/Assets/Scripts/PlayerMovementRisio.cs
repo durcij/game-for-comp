@@ -9,10 +9,10 @@ public class PlayerMovementRisio : MonoBehaviour {
 	bool isMovedRight = false;
   bool isMovedForward = false;
   bool isMovedBackward = false;
-  bool isAttackingLeft = false;
-  bool isAttackingRight = false;
-  bool isAttackingForward = false;
-  bool isAttackingBackward = false;
+  public bool isAttackingLeft = false;
+  public bool isAttackingRight = false;
+  public bool isAttackingForward = false;
+  public bool isAttackingBackward = false;
   bool isFacingLeft = false;
   bool isFacingRight = false;
   bool isFacingForward = true;
@@ -44,7 +44,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 		attackWait = 0.5f;
 		harmWait = 0.5f;
 		speed = 120.0f;
-		score = GetComponent<PlayerScoreDefault>().score;
+		score = GetComponent<PlayerScoreRisio>().score;
 		pain = GameObject.Find("RisioHurtBox").GetComponent<AudioSource>();
 		vulnerable = true;
 	}
@@ -57,6 +57,9 @@ public class PlayerMovementRisio : MonoBehaviour {
 
 		if(hurt && vulnerable) {
 			vulnerable = false;
+
+			isMoving = false;
+
 			isMovedLeft = false;
 			isMovedRight = false;
 			isMovedForward = false;
@@ -67,6 +70,8 @@ public class PlayerMovementRisio : MonoBehaviour {
 			isFacingForward = false;
 			isFacingBackward = false;
 			AnimatingPain(hurt);
+			AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
+			AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
 			pain.Play();
 			SpawnGemotes();
 		}
@@ -191,7 +196,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
 	  }
-		score = GetComponent<PlayerScoreDefault>().score;
+		score = GetComponent<PlayerScoreRisio>().score;
   }
 
 	void AnimatingMove(bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward)	{
@@ -250,7 +255,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
-		if (other.tag == "Nullos" || other.tag == "Risio Projectile" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
+		if (other.tag == "Nullos" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
 			if (vulnerable) {
 				hurt = true;
 			}

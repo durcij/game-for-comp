@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4653755700708922}
   - component: {fileID: 212402295541851928}
   - component: {fileID: 95115213353732200}
-  - component: {fileID: 114198681570374360}
+  - component: {fileID: 114238665876772202}
   m_Layer: 9
   m_Name: RisioAttack
   m_TagString: Risio Projectile
@@ -126,7 +126,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114198681570374360
+--- !u!114 &114238665876772202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1448014433610390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832273269ea71442e93d8cc648c98583, type: 3}
+  m_Script: {fileID: 11500000, guid: 8af95c6727bac43e0a677cf1923e98b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   isFiredBackward: 0
   isFired: 0
   timer: 0
-  lifespan: 0.5
+  lifespan: 0
 --- !u!212 &212402295541851928
 SpriteRenderer:
   m_ObjectHideFlags: 1

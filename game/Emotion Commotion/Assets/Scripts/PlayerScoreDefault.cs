@@ -38,7 +38,7 @@ public class PlayerScoreDefault : MonoBehaviour {
 				score += 100;
 			}
 			newFrame = false;
-		} else if (other.tag == "Nullos") {
+		} else if (other.tag == "Nullos" || other.tag == "Risio Projectile" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
 			if (score > 50) {
 				score -= 50;
 			} else {

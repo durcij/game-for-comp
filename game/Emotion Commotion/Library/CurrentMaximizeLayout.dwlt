@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1853
     height: 951
-  m_MinSize: {x: 711, y: 471}
-  m_MaxSize: {x: 18006, y: 14021}
+  m_MinSize: {x: 713, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 24585
+  controlID: 30510
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,10 +124,10 @@ MonoBehaviour:
     y: 0
     width: 831
     height: 951
-  m_MinSize: {x: 202, y: 342}
+  m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 24678
+  controlID: 30419
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,15 +146,15 @@ MonoBehaviour:
     y: 0
     width: 831
     height: 488
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 6}
+  m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
   - {fileID: 6}
   - {fileID: 7}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,9 +186,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.116442844, y: -0.041009687, z: -0.044131503}
+    m_Target: {x: -7.670463, y: 3.157001, z: -0.010059827}
     speed: 2
-    m_Value: {x: -0.116442844, y: -0.041009687, z: -0.044131503}
+    m_Value: {x: -7.670463, y: 3.157001, z: -0.010059827}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -220,9 +220,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.158004
+    m_Target: 3.7493746
     speed: 2
-    m_Value: 7.158004
+    m_Value: 3.7493746
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 4262
+  m_LastSelectedObjectID: -677342
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -446,8 +446,8 @@ MonoBehaviour:
     y: 488
     width: 831
     height: 463
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -473,10 +473,10 @@ MonoBehaviour:
     y: 0
     width: 468
     height: 951
-  m_MinSize: {x: 234, y: 471}
-  m_MaxSize: {x: 10004, y: 14021}
+  m_MinSize: {x: 234, y: 492}
+  m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 24586
+  controlID: 30463
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -529,9 +529,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a6100000
-    m_LastClickedID: 4262
-    m_ExpandedIDs: 2c74feffc8f3ffffdcfbffff00000000400f000092100000a6100000
+    m_SelectedIDs: 6eadf5ff
+    m_LastClickedID: 0
+    m_ExpandedIDs: 2c74feffc8f3ffffdcfbffff00000000400f000092100000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,16 +619,16 @@ MonoBehaviour:
     m_Folders:
     - Assets/Prefabs
   m_ViewMode: 1
-  m_StartGridSize: 64
+  m_StartGridSize: 43
   m_LastFolders:
   - Assets/Prefabs
-  m_LastFoldersGridSize: -1
+  m_LastFoldersGridSize: 43
   m_LastProjectPath: /home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion
     Commotion
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 127}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c8090000
     m_LastClickedID: 2504
     m_ExpandedIDs: 0000000002090000180b0000760c0000a80c0000160d0000940e00003461010000ca9a3b
@@ -684,8 +684,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a6100000
-    m_LastClickedInstanceID: 4262
+    m_SelectedInstanceIDs: 6eadf5ff
+    m_LastClickedInstanceID: -676498
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 180a00009a0c0000442e0000e20d0000da0c000000000000020d000024dbfdff
     m_RenameOverlay:
@@ -712,7 +712,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
+    m_GridSize: 43
   m_DirectoriesAreaWidth: 110
 --- !u!114 &14
 MonoBehaviour:
