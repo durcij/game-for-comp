@@ -13,6 +13,10 @@ public class PlayerMovementTristitia : MonoBehaviour {
   public bool isAttackingRight = false;
   public bool isAttackingForward = false;
   public bool isAttackingBackward = false;
+	bool isSlidingLeft = false;
+	bool isSlidingRight = false;
+	bool isSlidingForward = false;
+	bool isSlidingBackward = false;
   bool isFacingLeft = false;
   bool isFacingRight = false;
   bool isFacingForward = true;
@@ -33,6 +37,8 @@ public class PlayerMovementTristitia : MonoBehaviour {
 	int score;
 	AudioSource pain;
 	bool vulnerable;
+	bool hasSlid;
+	AudioSource slide;
 
 
 	void Awake () {
@@ -47,6 +53,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		score = GetComponent<PlayerScoreTristitia>().score;
 		pain = GameObject.Find("TristitiaHurtBox").GetComponent<AudioSource>();
 		vulnerable = true;
+		slide = GameObject.Find("TristitiaSlide").GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -196,6 +203,20 @@ public class PlayerMovementTristitia : MonoBehaviour {
 			attack.Play();
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
 	  }
+
+		if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
+			isSlidingRight = true;
+			AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+			physics.velocity = new Vector2(1, 0) * Time.deltaTime * speed * 2;
+			slide.Play();
+		}	else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
+			isSlidingLeft = true;
+		} else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
+			isSlidingForward = true;
+    } else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
+			isSlidingBackward = true;
+	  }
+
 		score = GetComponent<PlayerScoreTristitia>().score;
   }
 
@@ -220,6 +241,13 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		anim.SetBool ("isAttackingLeft", isAttackingLeft);
     anim.SetBool ("isAttackingForward", isAttackingForward);
     anim.SetBool ("isAttackingBackward", isAttackingBackward);
+	}
+
+	void AnimatingSlide(bool isSlidingLeft, bool isSlidingRight, bool isSlidingForward, bool isSlidingBackward)	{
+		anim.SetBool ("isSlidingLeft", isSlidingLeft);
+		anim.SetBool ("isSlidingRight", isSlidingRight);
+		anim.SetBool ("isSlidingForward", isSlidingForward);
+		anim.SetBool ("isSlidingBackward", isSlidingBackward);
 	}
 
 	void AnimatingPain (bool hurt) {
