@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreDefault.cs" />
      <Compile Include="Assets\Scripts\ProjectileDefault.cs" />
+     <Compile Include="Assets\Scripts\Statue.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion Commotion/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
