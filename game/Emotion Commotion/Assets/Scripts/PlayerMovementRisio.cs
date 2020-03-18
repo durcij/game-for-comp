@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerMovementRisio : MonoBehaviour {
 
-	public float speed;
+	private float speed;
 	bool isMovedLeft = false;
 	bool isMovedRight = false;
   bool isMovedForward = false;
   bool isMovedBackward = false;
-  public bool isAttackingLeft = false;
-  public bool isAttackingRight = false;
-  public bool isAttackingForward = false;
-  public bool isAttackingBackward = false;
+  bool isAttackingLeft = false;
+  bool isAttackingRight = false;
+  bool isAttackingForward = false;
+  bool isAttackingBackward = false;
   bool isFacingLeft = false;
   bool isFacingRight = false;
   bool isFacingForward = true;
@@ -23,7 +23,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 	Animator anim;
   AudioSource attack;
 	Rigidbody2D physics;
-	public float attackWait;
+	private float attackWait;
 	float timer;
 	float harmWait;
 	float harmTimer;
@@ -31,6 +31,8 @@ public class PlayerMovementRisio : MonoBehaviour {
 	public GameObject oneGemote;
 	public GameObject fiveGemotes;
 	int score;
+	AudioSource pain;
+	bool vulnerable;
 
 
 	void Awake () {
@@ -40,9 +42,11 @@ public class PlayerMovementRisio : MonoBehaviour {
 		timer = 0.0f;
 		harmTimer = 0.0f;
 		attackWait = 0.5f;
-		harmWait = 0.2f;
-		speed = 140.0f;
-		score = GetComponent<PlayerScoreRisio>().score;
+		harmWait = 0.5f;
+		speed = 120.0f;
+		score = GetComponent<PlayerScoreDefault>().score;
+		pain = GameObject.Find("RisioHurtBox").GetComponent<AudioSource>();
+		vulnerable = true;
 	}
 
 	// Update is called once per frame
@@ -51,7 +55,8 @@ public class PlayerMovementRisio : MonoBehaviour {
 		checkAttack ();
 		checkHarm ();
 
-		if(hurt) {
+		if(hurt && vulnerable) {
+			vulnerable = false;
 			isMovedLeft = false;
 			isMovedRight = false;
 			isMovedForward = false;
@@ -62,10 +67,11 @@ public class PlayerMovementRisio : MonoBehaviour {
 			isFacingForward = false;
 			isFacingBackward = false;
 			AnimatingPain(hurt);
+			pain.Play();
 			SpawnGemotes();
 		}
 
-		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt){
+		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt && vulnerable){
 			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
@@ -139,7 +145,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 					}
 		}
 
-		if (isMovedRight && !hurt && !hasAttacked)
+		if (isMovedRight && !hurt && !hasAttacked && vulnerable)
 			{
 				// transform.Translate(Vector3.right * Time.deltaTime * speed);
 				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
@@ -154,31 +160,31 @@ public class PlayerMovementRisio : MonoBehaviour {
 				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
 		}
 
-    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked) {
+    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked && vulnerable) {
 			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
       AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
     }
 
 
-		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true && !hurt) {
+		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt) {
+		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true && !hurt) {
+		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt) {
+    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
@@ -234,17 +240,20 @@ public class PlayerMovementRisio : MonoBehaviour {
 		if (hurt){
 			harmTimer += Time.deltaTime;
 			if (harmTimer > harmWait) {
-				hurt = false;
 				AnimatingPain(hurt);
 				isFacingForward = true;
 				harmTimer = harmTimer - harmWait;
+				hurt = false;
+				vulnerable = true;
 			}
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
-		if (other.tag == "Nullos" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
-			hurt = true;
+		if (other.tag == "Nullos" || other.tag == "Risio Projectile" || other.tag == "Furia Projectile" || other.tag == "Tristitia Projectile" || other.tag == "Dormio Projectile" || other.tag == "Dilectio Projectile" || other.tag == "Verecundia Projectile" || other.tag == "Invidia Projectile" || other.tag == "Mercuria Projectile") {
+			if (vulnerable) {
+				hurt = true;
+			}
 		}
 	}
 
