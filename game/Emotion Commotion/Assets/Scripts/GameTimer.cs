@@ -17,6 +17,7 @@ public class GameTimer : MonoBehaviour {
 	GameObject dormio;
 	Text text;
 
+	GameObject finalScreen;
 	GameObject finalScore;
 	Text finalScoreText;
 	string totalScore;
@@ -24,6 +25,12 @@ public class GameTimer : MonoBehaviour {
 	string tristitiaScore;
 	string furiaScore;
 	string dormioScore;
+
+	bool winSound;
+	AudioSource risioSound;
+	AudioSource tristitiaSound;
+	AudioSource furiaSound;
+	AudioSource dormioSound;
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +42,13 @@ public class GameTimer : MonoBehaviour {
 		tristitia = GameObject.Find("Tristitia");
 		furia = GameObject.Find("Furia");
 		dormio = GameObject.Find("Dormio");
-		finalScore = GameObject.Find("FinalScore")
+		finalScore = GameObject.Find("FinalScore");
 		finalScoreText = finalScore.GetComponent<Text>();
+		risioSound = GameObject.Find("RisioWin").GetComponent<AudioSource>();
+		tristitiaSound = GameObject.Find("TristitiaWin").GetComponent<AudioSource>();
+		furiaSound = GameObject.Find("FuriaWin").GetComponent<AudioSource>();
+		dormioSound = GameObject.Find("DormioWin").GetComponent<AudioSource>();
+		finalScreen = GameObject.Find("FinalScreen");
 	}
 
 	// Update is called once per frame
@@ -58,9 +70,31 @@ public class GameTimer : MonoBehaviour {
 			Destroy(furia);
 			Destroy(dormio);
 
-			totalScore
+			totalScore = (risio.GetComponent<PlayerScoreRisio>().score + tristitia.GetComponent<PlayerScoreTristitia>().score + furia.GetComponent<PlayerScoreFuria>().score + dormio.GetComponent<PlayerScoreDormio>().score).ToString();
+			risioScore = (risio.GetComponent<PlayerScoreRisio>().score).ToString();
+			tristitiaScore = (tristitia.GetComponent<PlayerScoreTristitia>().score).ToString();
+			furiaScore = (furia.GetComponent<PlayerScoreFuria>().score).ToString();
+			dormioScore = (dormio.GetComponent<PlayerScoreDormio>().score).ToString();
 
 			finalScoreText = "Time's Up!\nTotal Score:  " + totalScore + "\nPlayer 1:  " + risioScore + "\nPlayer 2:  " + tristitiaScore + "\nPlayer 3:  " + furiaScore + "\nPlayer 4:  " + dormioScore;
+
+			finalScreen.Enabled();
+
+			if (!winSound) {
+				if (risio.GetComponent<PlayerScoreRisio>().score >= tristitia.GetComponent<PlayerScoreTristitia>().score && risio.GetComponent<PlayerScoreRisio>().score >= furia.GetComponent<PlayerScoreFuria>().score && risio.GetComponent<PlayerScoreRisio>().score >= dormio.GetComponent<PlayerScoreDormio>().score) {
+					risioSound.Play();
+				}
+				if (tristitia.GetComponent<PlayerScoreTristitia>().score >= risio.GetComponent<PlayerScoreRisio>().score && tristitia.GetComponent<PlayerScoreTristitia>().score >= furia.GetComponent<PlayerScoreFuria>().score && tristitia.GetComponent<PlayerScoreTristitia>().score >= dormio.GetComponent<PlayerScoreDormio>().score) {
+					tristitiaSound.Play();
+				}
+				if (furia.GetComponent<PlayerScoreFuria>().score >= risio.GetComponent<PlayerScoreRisio>().score && furia.GetComponent<PlayerScoreFuria>().score >= tristitia.GetComponent<PlayerScoreTristitia>().score && furia.GetComponent<PlayerScoreFuria>().score >= dormio.GetComponent<PlayerScoreDormio>().score) {
+					furiaSound.Play();
+				}
+				if (dormio.GetComponent<PlayerScoreDormio>().score >= risio.GetComponent<PlayerScoreRisio>().score && dormio.GetComponent<PlayerScoreDormio>().score >= tristitia.GetComponent<PlayerScoreTristitia>().score && dormio.GetComponent<PlayerScoreDormio>().score >= furia.GetComponent<PlayerScoreFuria>().score) {
+					dormioSound.Play();
+				}
+				winSound = true;
+			}
 		}
 	}
 }
