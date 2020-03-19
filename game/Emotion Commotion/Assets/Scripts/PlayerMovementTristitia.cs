@@ -39,6 +39,8 @@ public class PlayerMovementTristitia : MonoBehaviour {
 	bool vulnerable;
 	bool hasSlid;
 	AudioSource slide;
+	float slideTimer;
+	float slideWait;
 
 
 	void Awake () {
@@ -54,6 +56,8 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		pain = GameObject.Find("TristitiaHurtBox").GetComponent<AudioSource>();
 		vulnerable = true;
 		slide = GameObject.Find("TristitiaSlide").GetComponent<AudioSource>();
+		slideTimer = 0.0f;
+		slideWait = .91665f;
 	}
 
 	// Update is called once per frame
@@ -61,6 +65,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 
 		checkAttack ();
 		checkHarm ();
+		checkSlide();
 
 		if(hurt && vulnerable) {
 			vulnerable = false;
@@ -76,14 +81,21 @@ public class PlayerMovementTristitia : MonoBehaviour {
 			isFacingRight = false;
 			isFacingForward = false;
 			isFacingBackward = false;
+
+			isSlidingLeft = false;
+			isSlidingRight = false;
+			isSlidingForward = false;
+			isSlidingBackward = false;
+
 			AnimatingPain(hurt);
 			AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-			AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
+			AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+			AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
 			pain.Play();
 			SpawnGemotes();
 		}
 
-		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt && vulnerable){
+		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt && vulnerable && !hasSlid){
 			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
@@ -172,9 +184,9 @@ public class PlayerMovementTristitia : MonoBehaviour {
 				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
 		}
 
-    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked && vulnerable) {
+    if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked && vulnerable && !hasSlid) {
 			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
-      AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
+      AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
     }
 
 
@@ -204,18 +216,47 @@ public class PlayerMovementTristitia : MonoBehaviour {
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
 	  }
 
-		if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
+		if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingRight == true && !hurt && vulnerable && !isMoving) {
 			isSlidingRight = true;
-			AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
-			physics.velocity = new Vector2(1, 0) * Time.deltaTime * speed * 2;
-			slide.Play();
-		}	else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
+			hasSlid = true;
+		}	else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingLeft == true && !hurt && vulnerable && !isMoving) {
 			isSlidingLeft = true;
-		} else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
+			hasSlid = true;
+		} else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingForward == true && !hurt && vulnerable && !isMoving) {
 			isSlidingForward = true;
-    } else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
+			hasSlid = true;
+    } else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingBackward == true && !hurt && vulnerable && !isMoving) {
 			isSlidingBackward = true;
+			hasSlid = true;
 	  }
+
+		if (hasSlid) {
+			isFacingLeft = false;
+			isFacingRight = false;
+			isFacingForward = false;
+			isFacingBackward = false;
+			if (isSlidingLeft) {
+				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+				physics.velocity = new Vector2(-1, 0) * Time.deltaTime * speed * 2;
+				slide.Play();
+			} else if (isSlidingRight) {
+				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+				physics.velocity = new Vector2(1, 0) * Time.deltaTime * speed * 2;
+				slide.Play();
+			} else if (isSlidingForward) {
+				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+				physics.velocity = new Vector2(0, -1) * Time.deltaTime * speed * 2;
+				slide.Play();
+			} else if (isSlidingBackward) {
+				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+				physics.velocity = new Vector2(0, 1) * Time.deltaTime * speed * 2;
+				slide.Play();
+			}
+		}
 
 		score = GetComponent<PlayerScoreTristitia>().score;
   }
@@ -227,12 +268,13 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		anim.SetBool ("isMovedBackward", isMovedBackward);
 	}
 
-  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward, bool isMovedLeft, bool isMovedRight, bool isMovedForward, bool isMovedBackward, bool hurt) {
+  void AnimatingIdle(bool isFacingLeft, bool isFacingRight, bool isFacingForward, bool isFacingBackward, bool hurt, bool hasSlid) {
     anim.SetBool ("isFacingLeft", isFacingLeft);
     anim.SetBool ("isFacingRight", isFacingRight);
     anim.SetBool ("isFacingForward", isFacingForward);
     anim.SetBool ("isFacingBackward", isFacingBackward);
 		anim.SetBool ("hurt", hurt);
+		anim.SetBool("hasSlid", hasSlid);
 
   }
 
@@ -278,6 +320,31 @@ public class PlayerMovementTristitia : MonoBehaviour {
 				harmTimer = harmTimer - harmWait;
 				hurt = false;
 				vulnerable = true;
+			}
+		}
+	}
+
+	void checkSlide() {
+		if (hasSlid) {
+			slideTimer += Time.deltaTime;
+			if (slideTimer > slideWait) {
+				hasSlid = false;
+				if (isSlidingLeft) {
+					isFacingLeft = true;
+				} else if (isSlidingRight) {
+					isFacingRight = true;
+				} else if (isSlidingForward) {
+					isFacingForward = true;
+				} else if (isSlidingBackward) {
+					isFacingBackward = true;
+				}
+				isSlidingLeft = false;
+				isSlidingRight = false;
+				isSlidingForward = false;
+				isSlidingBackward = false;
+				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
+				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
+				slideTimer = slideTimer - slideWait;
 			}
 		}
 	}

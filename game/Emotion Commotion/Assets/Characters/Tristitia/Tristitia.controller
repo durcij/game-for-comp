@@ -110,6 +110,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: hasSlid
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -183,6 +189,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hurt
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: hasSlid
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102241683386104750}
@@ -340,6 +349,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: hurt
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: hasSlid
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102874740267879662}
   m_Solo: 0
@@ -463,6 +475,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: hurt
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: hasSlid
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102287845462306224}
   m_Solo: 0
@@ -513,6 +528,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hurt
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: hasSlid
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102324560239266528}
