@@ -34,6 +34,7 @@ public class PlayerMovementRisio : MonoBehaviour {
 	AudioSource pain;
 	bool vulnerable;
 
+	public string fireButton = "Fire1_P1";
 
 	void Awake () {
 		anim = GetComponent <Animator> ();

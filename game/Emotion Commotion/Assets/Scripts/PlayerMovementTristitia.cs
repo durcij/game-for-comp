@@ -42,6 +42,8 @@ public class PlayerMovementTristitia : MonoBehaviour {
 	float slideTimer;
 	float slideWait;
 
+	public string fireButton = "Fire1_P2";
+	public string altButton = "Fire2_P2";
 
 	void Awake () {
 		anim = GetComponent <Animator> ();

@@ -34,6 +34,11 @@ public class PlayerMovementDefault : MonoBehaviour {
 	AudioSource pain;
 	bool vulnerable;
 
+	public string fireButton = "Fire1";
+	public string altButton = "Fire2";
+
+	public string horizontalControl = "Horizontal";
+	public string verticalControl = "Vertical";
 
 	void Awake () {
 		anim = GetComponent <Animator> ();
@@ -77,7 +82,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 		}
 
 		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt && vulnerable){
-			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
+			if ((Input.GetAxisRaw(horizontalControl) < 0) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
 					isMovedRight = false;
@@ -92,7 +97,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 					isMoving = true;
 
 					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-				} else if (Input.GetKey(KeyCode.RightArrow) && (!isMoving || isMovedRight)) // Move right
+				} else if ((Input.GetAxisRaw(horizontalControl) > 0) && (!isMoving || isMovedRight)) // Move right
 					{
 						isMovedRight = true;
 						isMovedLeft = false;
@@ -107,7 +112,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 						isMoving = true;
 
 						AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-				} else if (Input.GetKey(KeyCode.DownArrow) && (!isMoving || isMovedForward)) // Move forward
+				} else if ((Input.GetAxisRaw(verticalControl) < 0) && (!isMoving || isMovedForward)) // Move forward
 	  			{
 	  				isMovedForward = true;
 						isMovedLeft = false;
@@ -122,7 +127,7 @@ public class PlayerMovementDefault : MonoBehaviour {
 						isMoving = true;
 
 	  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-	  		} else if (Input.GetKey(KeyCode.UpArrow) && (!isMoving || isMovedBackward)) // Move backward
+	  		} else if ((Input.GetAxisRaw(verticalControl) > 0) && (!isMoving || isMovedBackward)) // Move backward
 					{
 	  				isMovedBackward = true;
 						isMovedLeft = false;
@@ -153,43 +158,43 @@ public class PlayerMovementDefault : MonoBehaviour {
 		if (isMovedRight && !hurt && !hasAttacked && vulnerable)
 			{
 				// transform.Translate(Vector3.right * Time.deltaTime * speed);
-				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
+				physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), (Input.GetAxisRaw(verticalControl) * 0)) * Time.deltaTime * speed;
 		} else if (isMovedLeft && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.left * Time.deltaTime * speed);
-				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
+				physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), (Input.GetAxisRaw(verticalControl) * 0)) * Time.deltaTime * speed;
 		} else if (isMovedBackward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.up * Time.deltaTime * speed);
-				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+				physics.velocity = new Vector2((Input.GetAxisRaw(horizontalControl) * 0), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
 		} else if (isMovedForward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.down * Time.deltaTime * speed);
-				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+				physics.velocity = new Vector2((Input.GetAxisRaw(horizontalControl) * 0), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
 		}
 
     if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked && vulnerable) {
-			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+			physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
       AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, isMovedLeft, isMovedRight, isMovedForward, isMovedBackward, hurt);
     }
 
 
-		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
+		if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
+		}	else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
+		} else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(risioAttack, transform.position, Quaternion.identity);
-    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
+    } else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
