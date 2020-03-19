@@ -45,6 +45,9 @@ public class PlayerMovementTristitia : MonoBehaviour {
 	public string fireButton = "Fire1_P2";
 	public string altButton = "Fire2_P2";
 
+	public string horizontalControl = "Horizontal_P2";
+	public string verticalControl = "Vertical_P2";
+
 	void Awake () {
 		anim = GetComponent <Animator> ();
 		attack = GetComponent<AudioSource> ();
@@ -98,7 +101,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		}
 
 		if (!hasAttacked && !isAttackingLeft && !isAttackingRight && !isAttackingForward && !isAttackingBackward && !hurt && vulnerable && !hasSlid){
-			if (Input.GetKey(KeyCode.LeftArrow) && (!isMoving || isMovedLeft)) // Move left
+			if ((Input.GetAxisRaw(horizontalControl) < 0) && (!isMoving || isMovedLeft)) // Move left
 				{
 					isMovedLeft = true;
 					isMovedRight = false;
@@ -113,7 +116,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 					isMoving = true;
 
 					AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-				} else if (Input.GetKey(KeyCode.RightArrow) && (!isMoving || isMovedRight)) // Move right
+				} else if ((Input.GetAxisRaw(horizontalControl) > 0) && (!isMoving || isMovedRight)) // Move right
 					{
 						isMovedRight = true;
 						isMovedLeft = false;
@@ -128,7 +131,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 						isMoving = true;
 
 						AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-				} else if (Input.GetKey(KeyCode.DownArrow) && (!isMoving || isMovedForward)) // Move forward
+				} else if ((Input.GetAxisRaw(verticalControl) < 0) && (!isMoving || isMovedForward)) // Move forward
 	  			{
 	  				isMovedForward = true;
 						isMovedLeft = false;
@@ -143,7 +146,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 						isMoving = true;
 
 	  				AnimatingMove(isMovedLeft, isMovedRight, isMovedForward, isMovedBackward);
-	  		} else if (Input.GetKey(KeyCode.UpArrow) && (!isMoving || isMovedBackward)) // Move backward
+	  		} else if ((Input.GetAxisRaw(verticalControl) > 0) && (!isMoving || isMovedBackward)) // Move backward
 					{
 	  				isMovedBackward = true;
 						isMovedLeft = false;
@@ -174,43 +177,43 @@ public class PlayerMovementTristitia : MonoBehaviour {
 		if (isMovedRight && !hurt && !hasAttacked && vulnerable)
 			{
 				// transform.Translate(Vector3.right * Time.deltaTime * speed);
-				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
+				physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), (Input.GetAxisRaw(verticalControl) * 0)) * Time.deltaTime * speed;
 		} else if (isMovedLeft && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.left * Time.deltaTime * speed);
-				physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), (Input.GetAxisRaw("Vertical") * 0)) * Time.deltaTime * speed;
+				physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), (Input.GetAxisRaw(verticalControl) * 0)) * Time.deltaTime * speed;
 		} else if (isMovedBackward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.up * Time.deltaTime * speed);
-				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+				physics.velocity = new Vector2((Input.GetAxisRaw(horizontalControl) * 0), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
 		} else if (isMovedForward && !hurt && !hasAttacked) {
 				// transform.Translate(Vector3.down * Time.deltaTime * speed);
-				physics.velocity = new Vector2((Input.GetAxisRaw("Horizontal") * 0), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+				physics.velocity = new Vector2((Input.GetAxisRaw(horizontalControl) * 0), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
 		}
 
     if(!isMovedLeft && !isMovedRight && !isMovedForward && !isMovedBackward && !hurt && !hasAttacked && vulnerable && !hasSlid) {
-			physics.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Time.deltaTime * speed;
+			physics.velocity = new Vector2(Input.GetAxisRaw(horizontalControl), Input.GetAxisRaw(verticalControl)) * Time.deltaTime * speed;
       AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
     }
 
 
-		if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
+		if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingRight == true && !hurt && vulnerable) {
 			isAttackingRight = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
-		}	else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
+		}	else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
-		} else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
+		} else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
-    } else if (Input.GetKey(KeyCode.Space) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
+    } else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
@@ -218,16 +221,16 @@ public class PlayerMovementTristitia : MonoBehaviour {
 			Instantiate(tristitiaAttack, transform.position, Quaternion.identity);
 	  }
 
-		if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingRight == true && !hurt && vulnerable && !isMoving) {
+		if (Input.GetButtonDown(altButton) && !hasSlid && !hasAttacked && isFacingRight == true && !hurt && vulnerable && !isMoving) {
 			isSlidingRight = true;
 			hasSlid = true;
-		}	else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingLeft == true && !hurt && vulnerable && !isMoving) {
+		}	else if (Input.GetButtonDown(altButton) && !hasSlid && !hasAttacked && isFacingLeft == true && !hurt && vulnerable && !isMoving) {
 			isSlidingLeft = true;
 			hasSlid = true;
-		} else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingForward == true && !hurt && vulnerable && !isMoving) {
+		} else if (Input.GetButtonDown(altButton) && !hasSlid && !hasAttacked && isFacingForward == true && !hurt && vulnerable && !isMoving) {
 			isSlidingForward = true;
 			hasSlid = true;
-    } else if (Input.GetKey(KeyCode.Alpha0) && !hasSlid && !hasAttacked && isFacingBackward == true && !hurt && vulnerable && !isMoving) {
+    } else if (Input.GetButtonDown(altButton) && !hasSlid && !hasAttacked && isFacingBackward == true && !hurt && vulnerable && !isMoving) {
 			isSlidingBackward = true;
 			hasSlid = true;
 	  }
