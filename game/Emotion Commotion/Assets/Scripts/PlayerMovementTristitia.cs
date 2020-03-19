@@ -41,6 +41,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 	AudioSource slide;
 	float slideTimer;
 	float slideWait;
+	bool slideSound;
 
 	public string fireButton = "Fire1_P2";
 	public string altButton = "Fire2_P2";
@@ -240,26 +241,26 @@ public class PlayerMovementTristitia : MonoBehaviour {
 			isFacingRight = false;
 			isFacingForward = false;
 			isFacingBackward = false;
+			if (!slideSound) {
+				slide.Play();
+				slideSound = true;
+			}
 			if (isSlidingLeft) {
 				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
 				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
-				physics.velocity = new Vector2(-1, 0) * Time.deltaTime * speed * 2;
-				slide.Play();
+				physics.velocity = new Vector2(-1, 0) * Time.deltaTime * speed * 1.5f;
 			} else if (isSlidingRight) {
 				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
 				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
-				physics.velocity = new Vector2(1, 0) * Time.deltaTime * speed * 2;
-				slide.Play();
+				physics.velocity = new Vector2(1, 0) * Time.deltaTime * speed * 1.5f;
 			} else if (isSlidingForward) {
 				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
 				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
-				physics.velocity = new Vector2(0, -1) * Time.deltaTime * speed * 2;
-				slide.Play();
+				physics.velocity = new Vector2(0, -1) * Time.deltaTime * speed * 1.5f;
 			} else if (isSlidingBackward) {
 				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
 				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
-				physics.velocity = new Vector2(0, 1) * Time.deltaTime * speed * 2;
-				slide.Play();
+				physics.velocity = new Vector2(0, 1) * Time.deltaTime * speed * 1.5f;
 			}
 		}
 
@@ -350,6 +351,7 @@ public class PlayerMovementTristitia : MonoBehaviour {
 				AnimatingSlide(isSlidingLeft, isSlidingRight, isSlidingForward, isSlidingBackward);
 				AnimatingIdle(isFacingLeft, isFacingRight, isFacingForward, isFacingBackward, hurt, hasSlid);
 				slideTimer = slideTimer - slideWait;
+				slideSound = false;
 			}
 		}
 	}

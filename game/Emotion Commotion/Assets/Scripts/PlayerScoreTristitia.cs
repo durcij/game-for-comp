@@ -18,7 +18,7 @@ public class PlayerScoreTristitia : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		text.text = "Player:  " + score;
+		text.text = "Player 2:  " + score;
 		newFrame = true;
 	}
 
