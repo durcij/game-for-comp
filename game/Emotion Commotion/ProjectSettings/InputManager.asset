@@ -57,8 +57,8 @@ InputManager:
     m_Name: Horizontal_P4
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: '[4]'
-    positiveButton: '[6]'
+    negativeButton: delete
+    positiveButton: page down
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -121,8 +121,8 @@ InputManager:
     m_Name: Vertical_P4
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: '[5]'
-    positiveButton: '[8]'
+    negativeButton: end
+    positiveButton: home
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -186,7 +186,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[0]'
+    positiveButton: \
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

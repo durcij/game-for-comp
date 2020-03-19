@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RisioAttack
+  m_Name: DormioAttack
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isFired
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c75376369f0c1446a8b67d42275037ea, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8e507ceb802f54088973115239d6a400, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c08524c8d659d480ab06c4b46192586e, type: 2}
+  m_Motion: {fileID: 7400000, guid: e93a82cc71ad24b32879869f8cda8853, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

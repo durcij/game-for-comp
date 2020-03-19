@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 13864
+  controlID: 20808
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 13624
+  controlID: 20809
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,8 +146,8 @@ MonoBehaviour:
     y: 0
     width: 831
     height: 488
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 5}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -89362
+  m_LastSelectedObjectID: -165260
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -301,6 +301,7 @@ MonoBehaviour:
     - {fileID: 1107560084274291864, guid: 8ce3f34bf667c44e3ab8435cd3e87295, type: 2}
     - {fileID: 1107560084274291864, guid: 9926fa4e9df0040cb841efd4b689c1cf, type: 2}
     - {fileID: 1107758994879681948, guid: 332a3f315c39e418d99b69f8ca254efb, type: 2}
+    - {fileID: 1107758994879681948, guid: d2dc8b283de36483eb27d2c5d7deb1c0, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.31331593
       e01: 0
@@ -478,11 +479,27 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.31331593
+      e01: 0
+      e02: 0
+      e03: 93.95561
+      e10: 0
+      e11: 0.31331593
+      e12: 0
+      e13: 155.53003
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 332a3f315c39e418d99b69f8ca254efb,
+  m_AnimatorController: {fileID: 9100000, guid: d2dc8b283de36483eb27d2c5d7deb1c0,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1107758994879681948, guid: 332a3f315c39e418d99b69f8ca254efb,
+  - m_Target: {fileID: 1107758994879681948, guid: d2dc8b283de36483eb27d2c5d7deb1c0,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -544,7 +561,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 13865
+  controlID: 20762
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -596,10 +613,10 @@ MonoBehaviour:
     height: 635
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: eea2feff
-    m_LastClickedID: -89362
-    m_ExpandedIDs: bc48feffe6fbffff00000000ba0f00005e110000
+    scrollPos: {x: 0, y: 32}
+    m_SelectedIDs: 747afdff
+    m_LastClickedID: -165260
+    m_ExpandedIDs: 767afdffbc48feffe6fbffff00000000ba0f00005e110000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -685,21 +702,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sounds/Effects/Characters/Furia
+    - Assets/Sounds/Effects/Characters/Dormio
   m_ViewMode: 1
   m_StartGridSize: 92
   m_LastFolders:
-  - Assets/Sounds/Effects/Characters/Furia
+  - Assets/Sounds/Effects/Characters/Dormio
   m_LastFoldersGridSize: 92
   m_LastProjectPath: /home/d/durcij/Documents/Comp Stuff/game-for-comp/game/Emotion
     Commotion
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 223}
-    m_SelectedIDs: d20c0000
-    m_LastClickedID: 3282
-    m_ExpandedIDs: 000000000a09000030090000d4090000280b0000460b0000840b0000b00c0000e20c0000540d0000ea0e0000300b0200320b020000ca9a3b
+    scrollPos: {x: 0, y: 435}
+    m_SelectedIDs: be0d0000
+    m_LastClickedID: 3518
+    m_ExpandedIDs: 000000000a09000030090000d4090000280b0000460b0000840b0000b00c0000e20c0000540d0000ea0e0000300b0200320b02003a4403003c44030000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -727,7 +744,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000a09000030090000d4090000280b0000460b0000840b0000b00c0000e20c0000540d0000ea0e0000300b0200320b020000ca9a3b
+    m_ExpandedIDs: 000000000a09000030090000d4090000280b0000460b0000840b0000b00c0000e20c0000540d0000ea0e0000300b0200320b02003a4403003c44030000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -752,8 +769,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: eea2feff
-    m_LastClickedInstanceID: -89362
+    m_SelectedInstanceIDs: 747afdff
+    m_LastClickedInstanceID: -165260
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 180a00009a0c0000442e0000e20d0000da0c000000000000020d000024dbfdff2a0d0000ee090000
     m_RenameOverlay:
