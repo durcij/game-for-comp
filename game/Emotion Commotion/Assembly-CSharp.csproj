@@ -59,12 +59,15 @@
      <Compile Include="Assets\Scripts\NullosRL.cs" />
      <Compile Include="Assets\Scripts\PatrolPoint.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementDefault.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovementFuria.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementRisio.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementTristitia.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreDefault.cs" />
+     <Compile Include="Assets\Scripts\PlayerScoreFuria.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreRisio.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreTristitia.cs" />
      <Compile Include="Assets\Scripts\ProjectileDefault.cs" />
+     <Compile Include="Assets\Scripts\ProjectileFuria.cs" />
      <Compile Include="Assets\Scripts\ProjectileRisio.cs" />
      <Compile Include="Assets\Scripts\ProjectileTristitia.cs" />
      <Compile Include="Assets\Scripts\Statue.cs" />
