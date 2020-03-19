@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Crate.cs" />
+     <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\GemoteCollect.cs" />
      <Compile Include="Assets\Scripts\NullosFB.cs" />
      <Compile Include="Assets\Scripts\NullosRL.cs" />
