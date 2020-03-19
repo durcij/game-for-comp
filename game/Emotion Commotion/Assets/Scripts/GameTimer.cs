@@ -17,7 +17,10 @@ public class GameTimer : MonoBehaviour {
 	GameObject dormio;
 	Text text;
 
+	bool winScreen;
 	GameObject finalScreen;
+	Animator anim;
+	bool visible;
 	GameObject finalScore;
 	Text finalScoreText;
 	string totalScore;
@@ -43,12 +46,14 @@ public class GameTimer : MonoBehaviour {
 		furia = GameObject.Find("Furia");
 		dormio = GameObject.Find("Dormio");
 		finalScore = GameObject.Find("FinalScore");
-		finalScoreText = finalScore.GetComponent<Text>();
+
 		risioSound = GameObject.Find("RisioWin").GetComponent<AudioSource>();
 		tristitiaSound = GameObject.Find("TristitiaWin").GetComponent<AudioSource>();
 		furiaSound = GameObject.Find("FuriaWin").GetComponent<AudioSource>();
 		dormioSound = GameObject.Find("DormioWin").GetComponent<AudioSource>();
 		finalScreen = GameObject.Find("FinalScreen");
+		finalScoreText = GameObject.Find("FinalScore").GetComponent<Text>();
+		anim = finalScreen.GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -63,12 +68,11 @@ public class GameTimer : MonoBehaviour {
 			text.text = minutes + ":" + seconds;
 		}
 
-		if (timeLeft <= 0) {
+		if (timeLeft <= 0 && !winScreen) {
 			text.text = "0:00.00";
-			Destroy(risio);
-			Destroy(tristitia);
-			Destroy(furia);
-			Destroy(dormio);
+
+			visible = true;
+			anim.SetBool("visible", visible);
 
 			totalScore = (risio.GetComponent<PlayerScoreRisio>().score + tristitia.GetComponent<PlayerScoreTristitia>().score + furia.GetComponent<PlayerScoreFuria>().score + dormio.GetComponent<PlayerScoreDormio>().score).ToString();
 			risioScore = (risio.GetComponent<PlayerScoreRisio>().score).ToString();
@@ -76,9 +80,12 @@ public class GameTimer : MonoBehaviour {
 			furiaScore = (furia.GetComponent<PlayerScoreFuria>().score).ToString();
 			dormioScore = (dormio.GetComponent<PlayerScoreDormio>().score).ToString();
 
-			finalScoreText = "Time's Up!\nTotal Score:  " + totalScore + "\nPlayer 1:  " + risioScore + "\nPlayer 2:  " + tristitiaScore + "\nPlayer 3:  " + furiaScore + "\nPlayer 4:  " + dormioScore;
+			finalScoreText.text = "Time's Up!\n\nTotal Score:  " + totalScore + "\nPlayer 1:  " + risioScore + "\nPlayer 2:  " + tristitiaScore + "\nPlayer 3:  " + furiaScore + "\nPlayer 4:  " + dormioScore;
 
-			finalScreen.Enabled();
+			Destroy(risio);
+			Destroy(tristitia);
+			Destroy(furia);
+			Destroy(dormio);
 
 			if (!winSound) {
 				if (risio.GetComponent<PlayerScoreRisio>().score >= tristitia.GetComponent<PlayerScoreTristitia>().score && risio.GetComponent<PlayerScoreRisio>().score >= furia.GetComponent<PlayerScoreFuria>().score && risio.GetComponent<PlayerScoreRisio>().score >= dormio.GetComponent<PlayerScoreDormio>().score) {
@@ -95,6 +102,8 @@ public class GameTimer : MonoBehaviour {
 				}
 				winSound = true;
 			}
+
+			winScreen = true;
 		}
 	}
 }
