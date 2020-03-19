@@ -18,7 +18,7 @@ public class PlayerScoreFuria : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		text.text = "Player:  " + score;
+		text.text = "Player 3:  " + score;
 		newFrame = true;
 	}
 

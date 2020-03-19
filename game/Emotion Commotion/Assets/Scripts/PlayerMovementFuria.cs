@@ -27,7 +27,7 @@ public class PlayerMovementFuria : MonoBehaviour {
 	float timer;
 	float harmWait;
 	float harmTimer;
-	public GameObject risioAttack;
+	public GameObject furiaAttack;
 	public GameObject oneGemote;
 	public GameObject fiveGemotes;
 	int score;
@@ -180,25 +180,25 @@ public class PlayerMovementFuria : MonoBehaviour {
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-			Instantiate(risioAttack, transform.position, Quaternion.identity);
+			Instantiate(furiaAttack, transform.position, Quaternion.identity);
 		}	else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingLeft == true && !hurt && vulnerable) {
 			isAttackingLeft = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-			Instantiate(risioAttack, transform.position, Quaternion.identity);
+			Instantiate(furiaAttack, transform.position, Quaternion.identity);
 		} else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingForward == true && !hurt && vulnerable) {
 			isAttackingForward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-			Instantiate(risioAttack, transform.position, Quaternion.identity);
+			Instantiate(furiaAttack, transform.position, Quaternion.identity);
     } else if (Input.GetButtonDown(fireButton) && !isMoving && !hasAttacked && isFacingBackward == true && !hurt && vulnerable) {
 			isAttackingBackward = true;
 			hasAttacked = true;
 			AnimatingAttack (isAttackingLeft, isAttackingRight, isAttackingForward, isAttackingBackward);
 			attack.Play();
-			Instantiate(risioAttack, transform.position, Quaternion.identity);
+			Instantiate(furiaAttack, transform.position, Quaternion.identity);
 	  }
 		score = GetComponent<PlayerScoreFuria>().score;
   }
