@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 82276424149129400}
   - component: {fileID: 114816328112388506}
   - component: {fileID: 95390441933146758}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Nullos Statue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

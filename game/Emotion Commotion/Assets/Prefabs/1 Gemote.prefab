@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95963104992765690}
   - component: {fileID: 82698481305735404}
   - component: {fileID: 114287076503110866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1 Gemote
   m_TagString: 1 Gemote
   m_Icon: {fileID: 0}

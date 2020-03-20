@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4372999879276532}
   - component: {fileID: 58514879490884744}
   - component: {fileID: 82706288984877112}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DormioHurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114507826922256682}
   - component: {fileID: 114113125714263138}
   - component: {fileID: 50039086466121690}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Dormio
   m_TagString: Player
   m_Icon: {fileID: 0}

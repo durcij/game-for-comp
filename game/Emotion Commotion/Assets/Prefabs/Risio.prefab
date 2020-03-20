@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4264991257610054}
   - component: {fileID: 58014213395359332}
   - component: {fileID: 82923180291158914}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RisioHurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114555617616333404}
   - component: {fileID: 114648101380307118}
   - component: {fileID: 50053060724734894}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Risio
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -366,6 +366,9 @@ MonoBehaviour:
   oneGemote: {fileID: 1887640837039414, guid: 4c44e82cd607e4827b628ce21a132401, type: 2}
   fiveGemotes: {fileID: 1543741304833886, guid: 14c850d098cc84a849bb7ebb5f7a5b10,
     type: 2}
+  fireButton: Fire1_P1
+  horizontalControl: Horizontal_P1
+  verticalControl: Vertical_P1
 --- !u!114 &114648101380307118
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58851256462523568}
   - component: {fileID: 58489721510750696}
   - component: {fileID: 114359004444685816}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Patrol2
   m_TagString: Patrol 2
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4662992677882030}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Nullos RL NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 58027327036358372}
   - component: {fileID: 58047299162769322}
   - component: {fileID: 114758957642586532}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Patrol1
   m_TagString: Patrol 1
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 95153126266510590}
   - component: {fileID: 114324281020383544}
   - component: {fileID: 50739752621216908}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Nullos
   m_TagString: Nullos
   m_Icon: {fileID: 0}

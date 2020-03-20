@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4395252765223206}
   - component: {fileID: 58998376488290906}
   - component: {fileID: 82999285105774550}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FuriaHurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114629965003427008}
   - component: {fileID: 114420084435546010}
   - component: {fileID: 50555709348836066}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Furia
   m_TagString: Player
   m_Icon: {fileID: 0}

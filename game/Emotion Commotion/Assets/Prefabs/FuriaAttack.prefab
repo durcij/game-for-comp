@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212878333869050406}
   - component: {fileID: 95967817366193482}
   - component: {fileID: 114608982213958752}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FuriaAttack
   m_TagString: Furia Projectile
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4895779640630080}
   - component: {fileID: 50585342057060872}
   - component: {fileID: 58637927391910600}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackHitBox
   m_TagString: Furia Projectile
   m_Icon: {fileID: 0}
