@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-/home/d/durcij/Documents/Comp Stuff/game-for-comp/Windows 64-Bit Build/Emotion Commotion/Emotion Commotion.exe
+/home/d/durcij/Documents/Comp Stuff/game-for-comp/Windows 64-Bit Build/Emotion Commotion.exe
 SceneListBegin?
 Assets/Scenes/MainScene.unity
 SceneListEnd?
